@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//admin
 Route::get('/', function () {
     return view('admin.subj');
 });
+
+Route::get('/advisee', function () {
+    return view('admin.advisee');
+});
+
+Route::get('/advisor', function () {
+    return view('admin.advisor');
+});
+
+Route::get('/hop', function () {
+    return view('admin.hop');
+});
+
+Route::get('/cs', function () {
+    return view('admin.cs');
+});
+

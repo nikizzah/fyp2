@@ -9,8 +9,8 @@
             <i class="ti-menu"></i>
          </button>
 
-         <div class="collapse navbar-collapse text-center" id="navigation">
-            <ul class="navbar-nav ml-auto">
+        <div  class="collapse navbar-collapse text-center" id="navigation">
+            <ul style='color:black' class="navbar-nav ml-auto">
               <!-- <li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                      aria-expanded="false">
@@ -29,16 +29,16 @@
                   <a class="nav-link" href="/">Subject</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Advisee</a>
+                  <a class="nav-link" href="/advisee">Advisee</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Advisor</a>
+                  <a class="nav-link" href="/advisor">Advisor</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">HOP</a>
+                  <a class="nav-link" href="/hop">HOP</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Course Structure</a>
+                  <a class="nav-link" href="/cs">Course Structure</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="contact.html">Logout</a>
@@ -58,10 +58,10 @@
                </li> -->
             </ul>
             
-            <select class="m-2 border-0" id="select-language">
+            <!-- <select class="m-2 border-0" id="select-language">
                <option id="en" value="about/" selected>En</option>
                <option id="fr" value="fr/about/">Fr</option>
-            </select>
+            </select> -->
 
             <!-- search -->
             <div class="search px-4">
