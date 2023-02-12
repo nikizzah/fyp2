@@ -1,15 +1,14 @@
-<header class="sticky-top bg-white border-bottom border-default">
-   <div class="container">
-
-      <nav class="navbar navbar-expand-lg color: #A45C40 ">
-         <a class="navbar-brand" href="/">
-            <img class="img-fluid" width="150px" src="source/images/logo-uniten.png" alt="UNITEN">
-         </a>
+<header style = 'background-color: #A45C40;' class="sticky-top border-bottom ">
+   <!-- <div class="container"> -->
+    <center><br/><h4 style= 'color:black'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4> 
+      <nav class="navbar navbar-expand-lg ">
+      
          <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
             <i class="ti-menu"></i>
          </button>
-
-        <div  class="collapse navbar-collapse text-center" id="navigation">
+         -
+         <div class="collapse navbar-collapse text-center" id="navigation">
+            
             <ul style='color:black' class="navbar-nav ml-auto">
               <!-- <li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -64,7 +63,7 @@
             </select> -->
 
             <!-- search -->
-            <div class="search px-4">
+            <!-- <div class="search px-4">
                <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
                <div class="search-wrapper">
                   <form action="javascript:void(0)" class="h-100">
@@ -72,7 +71,11 @@
                   </form>
                   <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
                </div>
-            </div>
+            </div> -->
+
+            <a class="navbar-brand" href="/">
+            <img class="img-fluid" width="120px" src="source/images/logo-uniten.png" alt="UNITEN">
+             </a>
 
          </div>
       </nav>
