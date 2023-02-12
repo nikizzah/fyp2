@@ -20,38 +20,37 @@
 
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>
-	<button class="btn btn-primary" style='margin-leftt:20px'><a href='/' style='color:black'>Create Advisee</a></button>
+	
 	<div class="container">
 	<br>
 	<table class=table border=2>
                   <tr>
-				  	<th>&nbsp;</th>
+				  	     <th>&nbsp;</th>
                     <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Subject Code</th>
-                    <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Pre requisite</th>
-                    <th>Credit Hour</th>
-					<th>Subject Category</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Address</th>
+                    <th>Contact Number</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>CGPA</th>
                   </tr>
+                  @foreach ($data as $display)
                   <tr>
                     <td>1</td>
-                    <td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
+                    <td><center><a style="color:pink" href = {{"delAdvisee/".$display['advisee_id']}}>DELETE</a></td>
+                    <td>{{$display["advisee_id"]}}</td>
+                    <td>{{$display["advisee_fname"]}}</td>
+                    <td>{{$display["advisee_address"]}}</td>
+                    <td>{{$display["advisee_contact"]}}</td>
+                    <td>{{$display["advisee_status"]}}</td>
+                    <td>{{$display["advisee_email"]}}</td>
+                    <td>{{$display["advisee_cgpa"]}}</td>
 				  </tr>
+              @endforeach
               </table>
-
-
-</section>
+              <center><button class="btn btn-primary" style='margin-leftt:20px'><a href='/createAdvisee' style='color:black'>Create Advisee</a></button>
+   </section>
 
    <footer class="section-sm pb-0 border-top border-default">
       <div class="container">

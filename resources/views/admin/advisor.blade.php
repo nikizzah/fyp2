@@ -27,25 +27,24 @@
                   <tr>
 				  	<th>&nbsp;</th>
                     <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Subject Code</th>
-                    <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Pre requisite</th>
-                    <th>Credit Hour</th>
-					<th>Subject Category</th>
+                    <th>Staff ID</th>
+                    <th>Name</th>
+                    <th>Extension</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th>Quota</th>
                   </tr>
                   <tr>
-                     <td>1</td>
-                     <td><a style="color:pink" href = {{"delAdvisee/".$display['advisee_id']}}>DELETE</a></td>
+                     <td></td>
+                     <td><a style="color:pink" href = {{"delAdvisor/".$display['advisor_id']}}>DELETE</a></td>
                      <td>{{$display["advisor_id"]}}</td>
-                     <td>{{$display["advisee_fname"]}}</td>
-                     <td>{{$display["advisee_address"]}}</td>
-                     <td>{{$display["advisee_contact"]}}</td>
-                     <td>{{$display["advisee_status"]}}</td>
-                     <td>{{$display["advisee_email"]}}</td>
-                     <td>{{$display["advisee_cgpa"]}}</td>
+                     <td>{{$display["advisor_name"]}}</td>
+                     <td>{{$display["advisor_ext"]}}</td>
+                     <td>{{$display["advisor_email"]}}</td>
+                     <td>{{$display["advisor_position"]}}</td>
+                     <td>{{$display["advisor_status"]}}</td>
+                     <td>{{$display["advisor_quota"]}}</td>
 				  </tr>
               </table>
 

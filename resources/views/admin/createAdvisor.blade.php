@@ -16,29 +16,46 @@
 <!-- navigation -->
 
 <!-- /navigation -->
+<!-- <a style ='align-item:right'>
+<button  class="btn btn-primary">Back</button>
+</a> -->
 
-
+<center><br><br><h4>Create Advisor</h4><br>
 <section class="section">
-<br><h4 style = 'margin-left: 20px;'>Head of Program</h4>
-	<button class="btn btn-primary" style='margin-leftt:20px'><a href='/' style='color:black'>Create HOP</a></button>
-	<div class="container">
-	<br>
-	<table class=table border=2>
-                  <tr>
-				  	<th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Staff ID</th>
-                    <th>Name</th>
-                  </tr>
-                  <tr>
-                     <td>1</td><td></td>
-                     <td><a style="color:pink" href = {{"delHOP/".$display['hop_id']}}>DELETE</a></td>
-                     <td>{{$display["hop_id"]}}</td>
-                     <td>{{$display["hop_name"]}}</td>
-				  </tr>
-              </table>
-
-
+        <div class="col-md-6 form-table">
+				<form method="POST" action="#">
+					<div class="form-group" style='text-align:left'>
+						<label for="id">Staff ID</label>
+						<input type="text" name="advisor_id" id="advisor_id" class="form-control">
+					</div>
+					<div class="form-group" style='text-align:left'>
+						<label for="name">Full Name</label>
+						<input type="text" name="advisee_name" id="advisee_name" class="form-control">
+					</div>
+					<div class="form-group" style='text-align:left'>
+						<label for="extension">Extension</label>
+						<input name="text" id="advisor_ext" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="email">Email</label>
+						<input name="text" id="advisor_email" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="position">Position</label>
+						<input name="text" id="advisor_position" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="quota">Quota</label>
+						<input name="text" id="advisor_quota" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="status">Statur</label>
+						<input name="text" id="advisor_status" class="form-control"></input>
+					</div>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Create Advisor</button>
+				</form>
+			</div>
 </section>
 
    <footer class="section-sm pb-0 border-top border-default">

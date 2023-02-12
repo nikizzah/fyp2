@@ -16,56 +16,58 @@
 <!-- navigation -->
 
 <!-- /navigation -->
+<!-- <a style ='align-item:right'>
+<button  class="btn btn-primary">Back</button>
+</a> -->
 
-
+<center><br><br><h4>Create Advisee</h4><br>
 <section class="section">
         <div class="col-md-6 form-table">
 				<form method="POST" action="#">
-					<div class="form-group">
+					<div class="form-group" style='text-align:left'>
 						<label for="id">Student ID</label>
 						<input type="text" name="advisee_id" id="advisee_id" class="form-control" required>
 					</div>
-					<div class="form-group">
+					<div class="form-group" style='text-align:left'>
 						<label for="name">Full Name</label>
 						<input type="text" name="advisee_name" id="advisee_name" class="form-control" required>
 					</div>
-					<div class="form-group">
+					<div class="form-group" style='text-align:left'>
 						<label for="address">Address</label>
 						<input name="text" id="advisee_address" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="address">Town</label>
 						<input name="text" id="advisee_town" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="address">State</label>
 						<input name="text" id="advisee_state" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="address">Postcode</label>
 						<input name="text" id="advisee_postcode" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="contact">Contact Number</label>
 						<input name="text" id="advisee_contact" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="email">Email</label>
 						<input name="text" id="advisee_email" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="cgpa">CGPA</label>
 						<input name="text" id="advisee_cgpa" class="form-control"></input>
 					</div>
-                    <div class="form-group">
+                    <div class="form-group" style='text-align:left'>
 						<label for="status">Status</label>
-						<input name="text" id="advisee_status" class="form-control"></input>
+						<input name="text" id="advisee_status" class="form-control"></input><br>
 					</div>
-					<button type="submit" class="btn btn-primary">Create Advisee</button>
-                    <button type="reset" class="btn btn-primary">Reset</button>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Create Advisee</button>
 				</form>
 			</div>
-
 </section>
 
    <footer class="section-sm pb-0 border-top border-default">
