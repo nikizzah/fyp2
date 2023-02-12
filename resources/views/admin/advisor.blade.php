@@ -37,16 +37,15 @@
 					<th>Subject Category</th>
                   </tr>
                   <tr>
-                    <td>1</td>
-                    <td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
-					<td>dw</td>
+                     <td>1</td>
+                     <td><a style="color:pink" href = {{"delAdvisee/".$display['advisee_id']}}>DELETE</a></td>
+                     <td>{{$display["advisor_id"]}}</td>
+                     <td>{{$display["advisee_fname"]}}</td>
+                     <td>{{$display["advisee_address"]}}</td>
+                     <td>{{$display["advisee_contact"]}}</td>
+                     <td>{{$display["advisee_status"]}}</td>
+                     <td>{{$display["advisee_email"]}}</td>
+                     <td>{{$display["advisee_cgpa"]}}</td>
 				  </tr>
               </table>
 
