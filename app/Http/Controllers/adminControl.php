@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\advisee;
 use App\Models\advisor;
+use App\Models\hop;
+use App\Models\subject;
 
 class adminControl extends Controller
 {
@@ -48,5 +50,4 @@ class adminControl extends Controller
         DB::delete('delete from hops where hop_id=?', [$hop_id]);
         return redirect('/hop');
     }
-
 }
