@@ -30,12 +30,14 @@
                     <th>Staff ID</th>
                     <th>Name</th>
                   </tr>
+                  @foreach ($data as $display)
                   <tr>
                      <td>1</td><td></td>
                      <td><a style="color:pink" href = {{"delHOP/".$display['hop_id']}}>DELETE</a></td>
                      <td>{{$display["hop_id"]}}</td>
                      <td>{{$display["hop_name"]}}</td>
 				  </tr>
+              @endforeach
               </table>
 
 

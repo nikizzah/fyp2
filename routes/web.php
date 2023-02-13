@@ -13,7 +13,9 @@ use App\Http\Controllers\adminControl;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//admin-login
+Route::get('/adminlogin', [adminControl::class, 'login']);
+Route::get('/adminregister', [adminControl::class, 'registration']);
 //admin-subject
 Route::get('/createSubj', function () {
     return view('admin.createSubj');
@@ -47,3 +49,7 @@ Route::get('/cs', function () {
     return view('admin.cs');
 });
 
+//hop advisee
+Route::get('/assigned', function () {
+    return view('hop.assigned');
+});

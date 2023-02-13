@@ -764,6 +764,7 @@ a:hover {
   border-radius: 40px;
   padding: 2px;
 }
+
 .title-bordered h1,
 .title-bordered h2,
 .title-bordered h3,
@@ -799,6 +800,14 @@ a:hover {
 .form-table {
   background: white;
   padding: 40px;
+}
+
+.white-box {
+  width: 5000px;
+  border: 15px solid rgb(255, 255, 255);
+  padding: 50px;
+  margin: 20px;
+  background-color: white;
 }
 
 .widget {

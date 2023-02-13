@@ -9,51 +9,15 @@
 
 <html lang="en-us">
 
-@include('admin.css')
-@include('admin.navbar')
+@include('hop.css')
+@include('hop.navbar')
 
 <body>
-<!-- navigation -->
-
-<!-- /navigation -->
-
-
 <section class="section">
-<br><h4 style = 'margin-left: 20px;'>Advisor</h4>
-	<button class="btn btn-primary" style='margin-leftt:20px'><a href='/' style='color:black'>Create Advisor</a></button>
-	<div class="container">
-	<br>
-	      <table class=table border=2>
-                  <tr>
-				  	<th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Staff ID</th>
-                    <th>Name</th>
-                    <th>Extension</th>
-                    <th>Email</th>
-                    <th>Position</th>
-                    <th>Status</th>
-                    <th>Quota</th>
-                  </tr>
-                  @foreach ($data as $display)
-                  <tr>
-                     <td></td>
-                     <td><a style="color:pink" href = {{"delAdvisor/".$display['advisor_id']}}>DELETE</a></td>
-                     <td>{{$display["advisor_id"]}}</td>
-                     <td>{{$display["advisor_name"]}}</td>
-                     <td>{{$display["advisor_ext"]}}</td>
-                     <td>{{$display["advisor_email"]}}</td>
-                     <td>{{$display["advisor_position"]}}</td>
-                     <td>{{$display["advisor_status"]}}</td>
-                     <td>{{$display["advisor_quota"]}}</td>
-				  </tr>
-              @endforeach
-              </table>
-
+<br><h4 style = 'margin-left: 20px;'>Advisee</h4>
 
 </section>
-
-   <footer class="section-sm pb-0 border-top border-default">
+<footer class="section-sm pb-0 border-top border-default">
       <div class="container">
          <div class="row justify-content-between">
             <!-- <div class="col-md-3 mb-4">

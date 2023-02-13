@@ -13,10 +13,6 @@
 @include('admin.navbar')
 
 <body>
-<!-- navigation -->
-
-<!-- /navigation -->
-
 
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>

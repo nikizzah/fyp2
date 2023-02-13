@@ -11,6 +11,15 @@ use App\Models\subject;
 
 class adminControl extends Controller
 {
+    public function login() {
+        return view('admin.login');
+    }
+
+    public function registration() {
+        return view('admin.register');
+    }
+
+
     public function displayAdvisee() {
         $value = advisee::all();
         return view('admin.advisee', ['data'=>$value]);

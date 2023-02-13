@@ -36,6 +36,7 @@
                     <th>Credit Hour</th>
 					<th>Subject Category</th>
                   </tr>
+                  @foreach ($data as $display)
                   <tr>
                      <td>1</td>
                       <td><a style="color:pink" href = {{"delAdvisee/".$display['advisee_id']}}>DELETE</a></td>
@@ -48,6 +49,7 @@
                      <td>{{$display["subject_credithr"]}}</td>
                      <td>{{$display["subject_category"]}}</td>
 				  </tr>
+              @endforeach
               </table>
 
 
