@@ -9,7 +9,7 @@
          -
          <div class="collapse navbar-collapse text-center" id="navigation">
          <center><br/><h4 style= 'color:black'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4>
-            <ul style='color:black' class="navbar-nav ml-auto">
+            <ul style='color:black' class="navbar-nav ml-col-8">
               <!-- <li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                      aria-expanded="false">
@@ -25,23 +25,14 @@
                   </div>
                </li> -->
                
-               <li class="nav-item">
-                  <a class="nav-link" href="/subj">Subject</a>
+               <li class="">
+                  <a class="nav-link" href="/">Advisee List</a>
+               </li>
+               <li class="">
+                  <a class="nav-link" href="/">Course Structure</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/advisee">Advisee</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/advisor">Advisor</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/hop">HOP</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/cs">Course Structure</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/adminlogout">Logout</a>
+                  <a class="nav-link" href="/advisorlogout">Logout</a>
                </li>
                <!--<li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"

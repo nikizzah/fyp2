@@ -9,7 +9,7 @@
 
 <html lang="en-us">
 
-@include('admin.css')
+@include('css')
 @include('admin.navbar')
 
 <body>
@@ -111,6 +111,6 @@
 
 
    <!-- JS Plugins -->
-   @include('admin.script')
+   @include('script')
 </body>
 </html>

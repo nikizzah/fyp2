@@ -53,6 +53,14 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'advisorAlreadyLoggedIn' => \App\Http\Middleware\advisorLoggedin::class,
+        'advisorLoggedIn' => \App\Http\Middleware\advisorAuth::class,
+        'adviseeAlreadyLoggedIn' => \App\Http\Middleware\adviseeLoggedin::class,
+        'adviseeLoggedIn' => \App\Http\Middleware\adviseeAuth::class,
+        'hopAlreadyLoggedIn' => \App\Http\Middleware\hopLoggedin::class,
+        'hopLoggedIn' => \App\Http\Middleware\hopAuth::class,
+        'adminAlreadyLoggedIn' => \App\Http\Middleware\adminLoggedIn::class,
+        'adminLoggedIn' => \App\Http\Middleware\AuthCheck::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

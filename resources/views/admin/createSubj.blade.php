@@ -16,43 +16,58 @@
 <!-- navigation -->
 
 <!-- /navigation -->
+<!-- <a style ='align-item:right'>
+<button  class="btn btn-primary">Back</button>
+</a> -->
 
-
+<center><br><br><h4>Create Subject</h4><br>
 <section class="section">
-<br><h4 style = 'margin-left: 20px;'>Subject</h4>
-	<button class="button" ><a style= 'color:black' href='/createSubj'>Create Subject</a></button>
-	<div class="container">
-	<br>
-	<table class=table border=2>
-                  <tr>
-				  	<th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Subject Code</th>
-                    <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Pre requisite</th>
-                    <th>Credit Hour</th>
-					<th>Subject Category</th>
-                  </tr>
-                  @foreach ($data as $display)
-                  <tr>
-                     <td>1</td>
-                      <td><a style="color:pink" href = {{"delSubj/".$display['subject_code']}}>DELETE</a></td>
-                     <td>{{$display["subject_year"]}}</td>
-                     <td>{{$display["subject_semester"]}}</td>
-                     <td>{{$display["subject_code"]}}</td>
-                     <td>{{$display["subject_name"]}}</td>
-                     <td>{{$display["subject_grade"]}}</td>
-                     <td>{{$display["subject_prerequisite"]}}</td>
-                     <td>{{$display["subject_credithr"]}}</td>
-                     <td>{{$display["subject_category"]}}</td>
-				  </tr>
-              @endforeach
-              </table>
-
-
+        <div class="col-md-6 form-table">
+				<form method="POST" action="#">
+					<div class="form-group" style='text-align:left'>
+						<label for="id">Subject Code</label>
+						<input type="text" name="subject_code" id="subject_code" class="form-control" required>
+					</div>
+					<div class="form-group" style='text-align:left'>
+						<label for="name">Subject Name</label>
+						<input type="text" name="subject_name" id="subject_name" class="form-control" required>
+					</div>
+					<div class="form-group" style='text-align:left'>
+						<label for="address">Address</label>
+						<input name="text" id="advisee_address" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="address">Town</label>
+						<input name="text" id="advisee_town" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="address">State</label>
+						<input name="text" id="advisee_state" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="address">Postcode</label>
+						<input name="text" id="advisee_postcode" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="contact">Contact Number</label>
+						<input name="text" id="advisee_contact" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="email">Email</label>
+						<input name="text" id="advisee_email" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="cgpa">CGPA</label>
+						<input name="text" id="advisee_cgpa" class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="status">Status</label>
+						<input name="text" id="advisee_status" class="form-control"></input><br>
+					</div>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Create Subject</button>
+				</form>
+			</div>
 </section>
 
    <footer class="section-sm pb-0 border-top border-default">

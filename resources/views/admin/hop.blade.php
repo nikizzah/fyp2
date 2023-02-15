@@ -9,7 +9,7 @@
 
 <html lang="en-us">
 
-@include('admin.css')
+@include('css')
 @include('admin.navbar')
 
 <body>
@@ -20,7 +20,7 @@
 
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Head of Program</h4>
-	<button class="btn btn-primary" style='margin-leftt:20px'><a href='/' style='color:black'>Create HOP</a></button>
+	<button class="button" ><a style= 'color:black' href='/createHOP'>Create HOP</a></button>
 	<div class="container">
 	<br>
 	<table class=table border=2>
@@ -96,6 +96,6 @@
 
 
    <!-- JS Plugins -->
-   @include('admin.script')
+   @include('script')
 </body>
 </html>

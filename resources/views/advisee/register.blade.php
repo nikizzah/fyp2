@@ -38,26 +38,29 @@
 <center><br><br><h4 style='font-weight: bold'>UNITEN ADVISORY AND STUDY PLANNER</h4><br>
 <section class="section">
         <div class="col-md-6 form-table">
-				<form method="POST" action="/loginadmin">
-             @if(Session::has('fail'))
+				<form method="POST" action="/registeradvisee">
+                    @if(Session::has('success'))
+                    <div class= "alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
                     <div class= "alert alert-danger">{{Session::get('fail')}}</div>
                     @endif
-               @csrf
-                <center><h4>Login</h4><br>
+                    @csrf
+                <center><h4>Register</h4><br>
 					<div class="form-group" style='text-align:left'>
-						<label for="id">Staff ID</label>
-						<input type="text" name="admin_id" id="admin_id" class="form-control" required>
-                  <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
-               </div>
+						<label for="advisee_id">Student ID</label>
+						<input type="text" name="advisee_id" id="advisee_id" class="form-control" required>
+                        <span class="text-danger">@error('advisee_id')  {{$message}} @enderror</span>
+					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="paswword">Password</label>
-						<input type="password" name="admin_password" id="admin_password" class="form-control" required>
-                  <span class="text-danger">@error('admin_password')  {{$message}} @enderror</span>
-               </div>
+						<label for="advisee_paswword">Password</label>
+						<input type="password" name="advisee_password" id="advisee_password" class="form-control" required>
+                        <span class="text-danger">@error('advisee_password')  {{$message}} @enderror</span>
+                    </div>
 					
                     <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <br><a style='color:#E4B7A0; text-decoration:underline; font-size:11px' href='adminregister'>Register Here</a>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <br><a style='color:#E4B7A0; text-decoration:underline; font-size:11px' href='adviseelogin'>Login Here</a>
 				</form>
 			</div>
 </section>

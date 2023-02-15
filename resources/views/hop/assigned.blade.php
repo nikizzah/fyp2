@@ -9,7 +9,7 @@
 
 <html lang="en-us">
 
-@include('hop.css')
+@include('css')
 @include('hop.navbar')
 
 <body>
@@ -72,6 +72,6 @@
 
 
    <!-- JS Plugins -->
-   @include('admin.script')
+   @include('script')
 </body>
 </html>

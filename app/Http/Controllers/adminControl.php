@@ -8,6 +8,9 @@ use App\Models\advisee;
 use App\Models\advisor;
 use App\Models\hop;
 use App\Models\subject;
+use App\Models\admin;
+use Hash;
+use Session;
 
 class adminControl extends Controller
 {
@@ -19,6 +22,50 @@ class adminControl extends Controller
         return view('admin.register');
     }
 
+    public function register(Request $req) {
+        // $req->validate([
+        //      'admin_id'=>'required|admin_id|unique:admins',
+        //      'admin_name'=>'required',
+        //      'admin_password'=>'required|min:5|max:10'
+        //  ]);
+        $admin = new admin();
+        $admin->admin_id  = $req->admin_id;
+        $admin->admin_name  = $req->admin_name;
+        $admin->admin_password  = Hash::make($req->admin_password);
+        
+        $save= $admin->save();
+        if($save){
+            return back()->with('success', 'Successfully Registered');
+        }else {
+            return back()->with('fail', 'Something wrong');
+        }
+    }
+
+    public function adminlogin(Request $req) {
+        // $req->validate([
+        //      'admin_id'=>'required|admin_id|unique:admins',
+        //      'admin_password'=>'required'
+        //  ]);
+
+        $admin = admin::where('admin_id', '=', $req->admin_id)->first();
+        if ($admin) {
+            if(Hash::check($req->admin_password, $admin->admin_password)) {
+                $req->session()->put('loginId', $admin->admin_id);
+                return redirect('/subj');
+            }else {
+                return back()->with('fail', 'Wrong password');
+            }
+        }else {
+            return back()->with('fail', 'This id is not registered');
+        }
+    }
+
+    public function adminlogout(){
+        if(Session::has('loginId')){
+            Session::pull('loginId');
+            return redirect('/adminlogin');
+        }
+    }
 
     public function displayAdvisee() {
         $value = advisee::all();
@@ -42,7 +89,9 @@ class adminControl extends Controller
 
     public function displaySubj() {
         $value = subject::all();
-        return view('admin.subj', ['data'=>$value]);
+        if(Session::has('loginId')){
+             return view('admin.subj', ['data'=>$value]);
+        }
     }
 
     public function deleteSubj($subject_code) {

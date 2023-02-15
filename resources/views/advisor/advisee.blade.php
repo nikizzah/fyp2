@@ -10,52 +10,16 @@
 <html lang="en-us">
 
 @include('css')
-@include('admin.navbar')
+@include('advisor.navbar')
 
 <body>
-<!-- navigation -->
-
-<!-- /navigation -->
-
-
 <section class="section">
-<br><h4 style = 'margin-left: 20px;'>Subject</h4>
-	<button class="button" ><a style= 'color:black' href='/createSubj'>Create Subject</a></button>
-	<div class="container">
-	<br>
-	<table class=table border=2>
-                  <tr>
-				  	<th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Subject Code</th>
-                    <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Pre requisite</th>
-                    <th>Credit Hour</th>
-					<th>Subject Category</th>
-                  </tr>
-                  @foreach ($data as $display)
-                  <tr>
-                     <td>1</td>
-                      <td><a style="color:pink" href = {{"delSubj/".$display['subject_code']}}>DELETE</a></td>
-                     <td>{{$display["subject_year"]}}</td>
-                     <td>{{$display["subject_semester"]}}</td>
-                     <td>{{$display["subject_code"]}}</td>
-                     <td>{{$display["subject_name"]}}</td>
-                     <td>{{$display["subject_grade"]}}</td>
-                     <td>{{$display["subject_prerequisite"]}}</td>
-                     <td>{{$display["subject_credithr"]}}</td>
-                     <td>{{$display["subject_category"]}}</td>
-				  </tr>
-              @endforeach
-              </table>
+<br><h4 style = 'margin-left: 20px;'>Advisee</h4>
+<div class="container white-box">
 
 
 </section>
-
-   <footer class="section-sm pb-0 border-top border-default">
+<footer class="section-sm pb-0 border-top border-default">
       <div class="container">
          <div class="row justify-content-between">
             <!-- <div class="col-md-3 mb-4">

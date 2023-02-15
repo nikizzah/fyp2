@@ -9,14 +9,14 @@
 
 <html lang="en-us">
 
-@include('admin.css')
+@include('css')
 @include('admin.navbar')
 
 <body>
 
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>
-	
+<button class="button" ><a style= 'color:black' href='/createAdvisee'>Create Advisee</a></button>
 	<div class="container">
 	<br>
 	<table class=table border=2>
@@ -45,7 +45,7 @@
 				  </tr>
               @endforeach
               </table>
-              <center><button class="btn btn-primary" style='margin-leftt:20px'><a href='/createAdvisee' style='color:black'>Create Advisee</a></button>
+              <center><button class="button" style='margin-leftt:20px'><a href='/createAdvisee' style='color:black'>Create Advisee</a></button>
    </section>
 
    <footer class="section-sm pb-0 border-top border-default">
@@ -101,6 +101,6 @@
 
 
    <!-- JS Plugins -->
-   @include('admin.script')
+   @include('script')
 </body>
 </html>

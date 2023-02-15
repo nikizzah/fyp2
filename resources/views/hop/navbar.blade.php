@@ -32,7 +32,7 @@
                   <a class="nav-link" href="/advisee">Advisor List</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Logout</a>
+                  <a class="nav-link" href="/hoplogout">Logout</a>
                </li>
                <!--<li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
