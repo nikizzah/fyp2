@@ -90,6 +90,24 @@ class hopControl extends Controller
         return view('hop.assignedAdvisee', ['data'=>$value]);
     }
 
+    public function searchAssigned() {
+    
+        $search = $_GET['searchAssignedAdvisee'];
+    
+        // $assigned = Advisee::whereHas('advisor', function($query) use ($search) {
+        //     $query->where('advisee_fname', 'LIKE','%'.$search.'%'); })->get();
+    
+        $assigned = DB::table('advisees')
+            ->where('advisee_fname', 'LIKE','%'.$search.'%')
+            ->whereNotNull('advisor_id')
+           ->get();
+    
+        $advisee = json_decode($assigned, true);
+        
+        return view('hop.searchAssigned',['assigned'=>$advisee]);
+    
+    }
+
     public function unassignedAdvisee() {
 
         $value = DB::table('advisees')->where('advisor_id' , NULL)->get();
@@ -103,13 +121,12 @@ class hopControl extends Controller
    public function assign(Request $req) {
 
         $advisee = advisee::find($req->advisee_id);
-        $value = DB::table('advisors')->where('advisor_name' , $req->advisor_name)->first();
+        $value = DB::table('advisors')->where('advisor_name' , $req->advisor_name)->get();
         $advisor = json_decode($value, true);
         //$value = DB::select('SELECT advisor_id FROM advisors WHERE advisor_name = ?' , [$req->advisor_name]);
-
         //DB::table('advisees')->select('advisor_id')->where('advisee_id', $req->advisee_id)->insert(['advisor_id' => $advisor->advisor_id]);
 
-        $advisee->advisor_id = $value;
+        $advisee->advisor_id = $advisor->advisor_id;
 
         $advisee->save();
 
@@ -122,14 +139,44 @@ class hopControl extends Controller
         return redirect('/unassignedAdvisee');
    }
 
-   public function searchUnassigned() {
+   public function searchUnassigned(Request $req) {
+
+    $search = $_GET['searchUnassignedAdvisee'];
+
+    $unassigned = DB::table('advisees')
+        ->where('advisee_fname', 'LIKE','%'.$search.'%')
+        ->whereNULL('advisor_id')
+        ->get();
+
+    $advisee = json_decode($unassigned, true);
     
-   }
+    $value = DB::select('SELECT advisor_id FROM advisors WHERE advisor_name = ?' , [$req->advisor_name]);
+    $advisor = advisor::all();
+    return view('hop.searchUnassigned',['unassigned'=>$advisee, 'advisor'=>$advisor]);
+
+}
+
+//    $unassigned = Advisee::whereHas('advisor', function($query) use ($search) {
+//     $query->where('advisee_fname', 'LIKE','%'.$search.'%'); })->get();
 
    public function advisor() {
         $value = advisor::all();
 
         return view('hop.advisor', ['data'=>$value]);
    }
+
+   public function searchAdvisor() {
+
+    $search = $_GET['searchAdvisor'];
+
+    $advisor = DB::table('advisors')
+        ->where('advisor_name', 'LIKE','%'.$search.'%')
+        ->get();
+
+    $data = json_decode($advisor, true);
+    
+    return view('hop.searchAdvisor',['advisor'=>$data]);
+
+}
 
 }

@@ -22,25 +22,32 @@
         <input name="searchAdvisor" type="search" placeholder="Search Advisor" >
         <button style= "border:none; background:transparent" type= submit><i class="ti-search" aria-hidden ="true"></i></input>
     </form>
-<!-- <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button> -->
         </div>
 </div>
 <br><h5 style = 'margin-left: 20px;'>Advisors</h5><br>
                
+@if(isset($advisor))
 <table style='background-color:#F6EEE0' class=table border>
+
+@if(count($advisor) > 0)
                   <tr>
                   <th>&nbsp;</th>
                     <th>Advisor Quota</th>
                     <th>Advisor Name</th>
                   </tr>
-                  @foreach ($data as $display)
+                  @foreach ($advisor as $display)
                   <tr>
                      <td>{{ $loop->iteration }}</td>
                      <td>{{$display["advisor_quota"]}}</td>
                      <td>{{$display["advisor_name"]}}</td>
 				  </tr>
-              @endforeach
-              </table>
+                  @endforeach
+              @else
+            <tr><td style="font-size: 15px">No result found!</td></tr>
+        @endif
+              
+</table>
+@endif
 
 </section>
 

@@ -15,12 +15,13 @@
 <body>
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>
+<button class="button" ><a style= 'color:black' href='/chooseadvisee'>Back</a></button>
 <center><div class="container white-box">
 <div style = 'margin-left: 700px;'>
     <div class="search">
-    <form action="get" >
-    <i class="ti-search" aria-hidden ="true"></i>
-        <input name="searchAdvisee" type="search" placeholder="Search Advisee" >
+    <form action="/searchAssignedAdvisee" method="get">
+        <input name="searchAssignedAdvisee" type="search" placeholder="Search Advisee" >
+        <button style= "border:none; background:transparent" type= submit><i class="ti-search" aria-hidden ="true"></i></input>
     </form>
 <!-- <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button> -->
         </div>

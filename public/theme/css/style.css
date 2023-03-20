@@ -81,15 +81,15 @@ h6, .h6 {
 
 .button {
   font-size: 14px;
-  font-weight: 550;
+  font-weight: 500;
   font-family: "Open Sans", sans-serif;
   text-transform: capitalize;
   padding: 8px 25px;
   border-radius: 50px;
   border: 1px solid;
-  background: #F3BB9E;
+  background: #c88f73;
   color: #000000;
-  border-color: #F3BB9E;
+  border-color: #c88f73;
   position: absolute;
   top: 150px;
   right: 16px;

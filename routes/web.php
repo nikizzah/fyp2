@@ -84,9 +84,11 @@ Route::post('/chooseListAdvisee', [hopControl::class, 'chooseListAdvisee']);
 
 //hop assigned advisee
 Route::get('/assignedAdvisee', [hopControl::class, 'assignedAdvisee']);
+Route::get('/searchAssignedAdvisee', [hopControl::class, 'searchAssigned']);
 
 //hop advisor list
 Route::get('/advisorlist', [hopControl::class, 'advisor']);
+Route::get('/searchAdvisor', [hopControl::class, 'searchAdvisor']);
 
 //hop unassigned advisee
 Route::get('/unassignedAdvisee', [hopControl::class, 'unassignedAdvisee']);
