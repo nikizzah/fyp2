@@ -8,8 +8,8 @@
          </button> -->
          -
          <div class="collapse navbar-collapse text-center" id="navigation">
-         <center><br/><h4 style= 'color:black'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4>
-            <ul style='color:black' class="navbar-nav ml-auto">
+         <center><br/><h4 style= 'color:black; margin-left: 50px;'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4>
+            <center><ul style='color:black' class="navbar-nav">
               <!-- <li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                      aria-expanded="false">
@@ -56,8 +56,8 @@
                      <a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a>
                   </div>
                </li> -->
-               <a class="" href="/">
-               <img class="img-fluid" width="120px" src="source/images/logo-uniten.png" alt="UNITEN">
+               <a class="" href="/subj">
+               <img style='position: absolute; top: 15px; right: 16px' class="img-fluid" width="120px" src="{{url('source/images/logo-uniten.png')}}" alt="UNITEN">
                 </a>
             </ul>
             

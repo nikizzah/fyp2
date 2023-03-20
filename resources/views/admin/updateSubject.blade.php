@@ -20,42 +20,40 @@
 <button  class="btn btn-primary">Back</button>
 </a> -->
 
-<center><br><br><h4>Create Subject</h4><br>
+<center><br><br><h4>Update Subject</h4><br>
 <button class="button" ><a style= 'color:black' href='/subj'>Back</a></button>
 <section class="section">
         <div class="col-md-6 form-table">
-				<form method="POST" action="/insertSubj">
-            @if(Session::has('fail'))
-                    <div class= "alert alert-danger">{{Session::get('fail')}}</div>
-                    @endif
+				<form method="POST" action="/editSubj">
                     @csrf
-                    <!-- from course structure table
-					<div class="form-group" style='text-align:left'>
-						<label for="year">Year</label>
+                    <div class="form-group" style='text-align:left'>
+						<label for="subject_code">Subject Code</label>
+						<input type="text" id="subject_code" name="subject_code" value = '{{$display['subject_code']}}' class="form-control" required></input>
+					</div>
+
+               <!--from course structure table
+					   <div class="form-group" style='text-align:left'>
+						<label for="year">Subject Year</label>
 						<input type="text" name="subject_year" id="subject_year" class="form-control" required>
 					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="name">Semester</label>
+						<label for="name">Subject Semester</label>
 						<input type="text" name="subject_semester" id="subject_semester" class="form-control" required>
 					</div> -->
-					<div class="form-group" style='text-align:left'>
-						<label for="subject_code">Subject Code</label>
-						<input type="text" id="subject_code" name="subject_code" class="form-control" required></input>
-                  <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
-					</div>
+
                     <div class="form-group" style='text-align:left'>
 						<label for="name">Subject Name</label>
-						<input type="text" name="subject_name" id="subject_name" class="form-control" required>
+						<input type="text" name="subject_name" id="subject_name" value = '{{$display['subject_name']}}' class="form-control" required>
 					</div>
                     <div class="form-group" style='text-align:left'>
 						<label for="name">Subject Credit Hour</label>
-						<input type="text" name="subject_credithr" id="subject_credithr" class="form-control" required>
+						<input type="text" name="subject_credithr" id="subject_credithr" value = '{{$display['subject_credithr']}}' class="form-control" required>
 					</div>
                     <div class="form-group" style='text-align:left'>
 						<label for="name">Subject Category</label>
 						<!-- <input type="text" name="subject_category" id="subject_category" class="form-control" required> -->
                   <select name="subject_category" type="text" class="form-control "  required>
-                      <option value= "">--Select--</option>
+                      <center><option value= "{{$display['subject_category']}}">{{$display['subject_category']}}</option>
                       <option value = "Core">Core</option>
                       <option value = "Elective">Elective</option>
                       <option value = "College Compulsory">College Compulsory</option>
@@ -65,11 +63,10 @@
 					</div>
                     <div class="form-group" style='text-align:left'>
 						<label for="name">Pre requisite Subject</label>
-						<input type="text" name="subject_prerequisite" id="subject_prerequisite" class="form-control">
-                  
+						<input type="text" name="subject_prerequisite" id="subject_prerequisite" value =  '{{$display['subject_prerequisite']}}' class="form-control">
 					</div>
-               
-                    <button type="submit" class="btn btn-primary">Create Subject</button>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Update Subject</button>
 				</form>
 			</div>
 </section>

@@ -15,19 +15,47 @@
 <body>
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>
-<div class="container white-box">
-
+<center><div class="container white-box">
+<div style = 'margin-left: 700px;'>
+    <div class="search">
+    <form action="get" >
+    <i class="ti-search" aria-hidden ="true"></i>
+        <input name="searchAdvisee" type="search" placeholder="Search Advisee" >
+    </form>
+<!-- <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button> -->
+        </div>
+</div>
+<br><h5 style = 'margin-left: 20px;'>Assigned Advisee</h5><br>
+<table style='background-color:#F6EEE0' class=table border>
+                  <tr>
+				  	     <th>&nbsp;</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Assigned Advisor</th>
+                  </tr>
+                  @foreach ($data as $display)
+                  <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{$display["advisee_id"]}}</td>
+                    <td>{{$display["advisee_fname"]}}</td>
+                    <td>{{$display["advisor_name"]}}</td>
+				  </tr>
+              
+              @endforeach
+              </table>
 
 </section>
-<footer class="section-sm pb-0 border-top border-default">
+
+
+<!-- <footer class="section-sm pb-0 border-top border-default">
       <div class="container">
          <div class="row justify-content-between">
-            <!-- <div class="col-md-3 mb-4">
+             <div class="col-md-3 mb-4">
                <a class="mb-4 d-block" href="index.html">
                   <img class="img-fluid" width="150px" src="images/logo.png" alt="LogBook">
                </a>
                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div> -->
+            </div> 
 
 
             <div class="col-lg-2 col-md-3 col-6 mb-4">
@@ -68,7 +96,7 @@
             <p class="content">&copy; 2020 - Design &amp; Develop By <a href="https://themefisher.com/" target="_blank">Themefisher</a></p>
          </div>
       </div>
-   </footer>
+   </footer> -->
 
 
    <!-- JS Plugins -->

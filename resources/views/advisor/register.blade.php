@@ -52,6 +52,11 @@
 						<input type="text" name="advisor_id" id="advisor_id" class="form-control" required>
                         <span class="text-danger">@error('advisor_id')  {{$message}} @enderror</span>
 					</div>
+               <div class="form-group" style='text-align:left'>
+						<label for="advisor_name">Advisor Name</label>
+						<input type="text" name="advisor_name" id="advisor_name" class="form-control" required>
+                        <span class="text-danger">@error('advisor_name')  {{$message}} @enderror</span>
+					</div>
 					<div class="form-group" style='text-align:left'>
 						<label for="advisor_paswword">Password</label>
 						<input type="password" name="advisor_password" id="advisor_password" class="form-control" required>

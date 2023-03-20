@@ -13,16 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
+
+        if(!Schema::hasTable('advisors')) {
         Schema::create('advisors', function (Blueprint $table) {
-            $table->string('advisor_id')->unique();
-            $table->string('advisor_password');
+            
+            $table->string('advisor_id')->primary();
+            $table->string('advisor_password')->default('');
             $table->string('advisor_name')->default('');
             $table->string('advisor_ext')->default('');
-            $table->string('advisee_quota')->default('');
-            $table->string('advisee_position')->default('');
-            $table->string('advisee_status')->default('');
+            $table->string('advisor_email')->default('');
+            $table->string('advisor_quota')->default('0');
+            $table->string('advisor_position')->default('');
+            //$table->string('advisor_status')->default('');
             $table->timestamps();
         });
+    }
+
     }
 
     /**

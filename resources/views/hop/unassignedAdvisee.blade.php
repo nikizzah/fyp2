@@ -10,40 +10,56 @@
 <html lang="en-us">
 
 @include('css')
-@include('admin.navbar')
+@include('hop.navbar')
 
 <body>
-<!-- navigation -->
-
-<!-- /navigation -->
-<!-- <a style ='align-item:right'>
-<button  class="btn btn-primary">Back</button>
-</a> -->
-
-<center><br><br><h4>Create Head of Program</h4><br>
-<button class="button" ><a style= 'color:black' href='/hop'>Back</a></button>
 <section class="section">
-        <div class="col-md-6 form-table">
-				<form method="POST" action="/insertHOP">
-               @csrf
-					<div class="form-group" style='text-align:left'>
-						<label for="id">Staff ID</label>
-						<input type="text" name="hop_id" id="hop_id" class="form-control">
-					</div>
-					<div class="form-group" style='text-align:left'>
-						<label for="name">Full Name</label>
-						<input type="text" name="hop_name" id="hop_name" class="form-control">
-					</div>
-                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
-                    <button type="submit" class="btn btn-primary">Create HOP</button>
-				</form>
-			</div>
+<br><h4 style = 'margin-left: 20px;'>Advisee</h4>
+<center><div class="container white-box">
+<div style = 'margin-left: 700px;'>
+    <div class="search">
+    <form action="/searchUnassigned" method="get" >
+    <i class="ti-search" aria-hidden ="true"></i>
+        <input name="searchUnassignedAdvisee" type="search" placeholder="Search Advisee" value="{{req()->query('search')}}">
+    </form>
+<!-- <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button> -->
+        </div>
+</div>
+<br><h5 style = 'margin-left: 20px;'>Uassigned Advisee</h5><br>
+<table style='background-color:#F6EEE0' class=table border>
+                  <tr>
+				  	     <th>&nbsp;</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Assign Advisor</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                  <form action="/assign" method ='post'>
+                  @csrf
+                  @foreach ($data as $display)
+                  <tr>
+                    <td> {{ $loop->iteration }}</td>
+                    <td><input style="border:none; background-color: transparent;" type="text" name='advisee_id' id="advisee_id" value="{{$display["advisee_id"]}}" readonly></td>
+                    <td><input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$display["advisee_fname"]}}" readonly></td>
+                    <td>
+                           <select style="color:#E4B7A0; border:#E4B7A0" name="assign" type="text" class="form-control ">
+                           <option selected disabled>Select Advisor</option>  
+                           @foreach ($advisor as $assign) 
+                           <option value= "{{$assign->advisor_name}}">{{$assign->advisor_name}}</option>
+                           @endforeach   
+                        </select>
+                     </td>
+                     <td><button type="submit" class="btn btn-primary">Assign Advisor</button>
+				  </tr>
+              
+              @endforeach
+              </table>
+</table>
 </section>
-
-   <!--<footer class="section-sm pb-0 border-top border-default">
+<!-- <footer class="section-sm pb-0 border-top border-default">
       <div class="container">
          <div class="row justify-content-between">
-            <div class="col-md-3 mb-4">
+           <div class="col-md-3 mb-4">
                <a class="mb-4 d-block" href="index.html">
                   <img class="img-fluid" width="150px" src="images/logo.png" alt="LogBook">
                </a>

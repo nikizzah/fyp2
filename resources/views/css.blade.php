@@ -11,17 +11,19 @@
    <meta name="theme-name" content="logbook" />
 
    <!-- plugins -->
-   <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2" style="font-display: optional;">
-   <link rel="stylesheet" href="theme/plugins/bootstrap/bootstrap.min.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap" media="screen">
-
-   <link rel="stylesheet" href="theme/plugins/themify-icons/themify-icons.css">
-   <link rel="stylesheet" href="theme/plugins/slick/slick.css">
+   <link rel="preload" href="{{url('https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2')}}" style="font-display: optional;">
+   <link rel="stylesheet" href="{{url('theme/plugins/bootstrap/bootstrap.min.css')}}">
+   <link rel="stylesheet" href="{{url('https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap')}}" media="screen">
+   
+   <link rel="stylesheet" href="{{url('theme/plugins/themify-icons/themify-icons.css')}}">
+   <link rel="stylesheet" href="{{url('theme/plugins/slick/slick.css')}}">
 
    <!-- Main Stylesheet -->
-   <link rel="stylesheet" href="theme/css/style.css">
+   <link rel="stylesheet" href="{{url('theme/css/style.css')}}">
 
    <!--Favicon-->
    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>

@@ -20,92 +20,49 @@
 
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Subject</h4>
-	<button class="button" ><a style= 'color:black' href='/createSubj'>Create Subject</a></button>
+	
 	<div class="container">
 	<br>
+   <form method="POST" action="/importSubj" enctype="multipart/form-data">
+            @if(Session::has('fail'))
+                    <div class= "alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+               @csrf
+               <div class="form-group" style='text-align:left'>
+                  <center><input type="file" id="subject_file" name="subject_file" class="upload-file" required>
+                  <!-- <label style="background-color: #F3BB9E; font-size: 20px; width:200px; height: 50px; align-items:center; justify-content:center" for="advisee_file"><span class="material-symbols-outlined">upload_file</span> Choose File</label> -->
+					      </div>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <center><button type="submit" class="btn btn-primary">Create Subject</button>
+				</form>
+        <br><br>
 	<table class=table border=2>
                   <tr>
 				  	<th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
                     <th>Subject Code</th>
                     <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Pre requisite</th>
                     <th>Credit Hour</th>
-					<th>Subject Category</th>
+                    <th>Subject Year</th>
+                    <th>Subject Semester</th>
+                    <th>Subject Category</th>
+                    <th>Pre requisite</th>
                   </tr>
                   @foreach ($data as $display)
                   <tr>
-                     <td>1</td>
-                      <td><a style="color:pink" href = {{"delSubj/".$display['subject_code']}}>DELETE</a></td>
+                     <td>{{ $loop->iteration }}</td>
+                      <td>{{$display["subject_code"]}}</td>
+                     <td>{{$display["subject_name"]}}</td>
+                     <td>{{$display["subject_credithr"]}}</td>
                      <td>{{$display["subject_year"]}}</td>
                      <td>{{$display["subject_semester"]}}</td>
-                     <td>{{$display["subject_code"]}}</td>
-                     <td>{{$display["subject_name"]}}</td>
-                     <td>{{$display["subject_grade"]}}</td>
-                     <td>{{$display["subject_prerequisite"]}}</td>
-                     <td>{{$display["subject_credithr"]}}</td>
                      <td>{{$display["subject_category"]}}</td>
+                     <td>{{$display["subject_prerequisite"]}}</td>
 				  </tr>
               @endforeach
               </table>
-
+              <!-- <center><button class="btn btn-primary"><a href='/updateSubject' style='color:black'>Update Subject</a></button> -->
 
 </section>
-
-   <footer class="section-sm pb-0 border-top border-default">
-      <div class="container">
-         <div class="row justify-content-between">
-            <!-- <div class="col-md-3 mb-4">
-               <a class="mb-4 d-block" href="index.html">
-                  <img class="img-fluid" width="150px" src="images/logo.png" alt="LogBook">
-               </a>
-               <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div> -->
-
-
-            <div class="col-lg-2 col-md-3 col-6 mb-4">
-               <h6 class="mb-4">Quick Links</h6>
-               <ul class="list-unstyled footer-list">
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li><a href="terms-conditions.html">Terms Conditions</a></li>
-               </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-3 col-6 mb-4">
-               <h6 class="mb-4">Social Links</h6>
-               <ul class="list-unstyled footer-list">
-                  <li><a href="#">facebook</a></li>
-                  <li><a href="#">twitter</a></li>
-                  <li><a href="#">linkedin</a></li>
-                  <li><a href="#">github</a></li>
-               </ul>
-            </div>
-
-            <div class="col-md-3 mb-4">
-               <h6 class="mb-4">Subscribe Newsletter</h6>
-               <form class="subscription" action="javascript:void(0)" method="post">
-                  <div class="position-relative">
-                     <i class="ti-email email-icon"></i>
-                     <input type="email" class="form-control" placeholder="Your Email Address">
-                  </div>
-                  <button class="btn btn-primary btn-block rounded" type="submit">Subscribe now</button>
-               </form>
-            </div>
-         </div>
-         <div class="scroll-top">
-            <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
-         </div>
-         <div class="text-center">
-            <p class="content">&copy; 2020 - Design &amp; Develop By <a href="https://themefisher.com/" target="_blank">Themefisher</a></p>
-         </div>
-      </div>
-   </footer>
-
 
    <!-- JS Plugins -->
    @include('script')

@@ -15,17 +15,34 @@
 <body>
 <section class="section">
 <br><h4 style = 'margin-left: 20px;'>Advisee</h4>
+<center><div style ="margin-top: 170px;"class="col-md-3 ">
+				<form method="POST" action="/chooseListAdvisee">
+                    @csrf
+                    <div class="form-group" style='text-align:left'>
+						<label for="name">List of: </label>
+						<!-- <input type="text" name="subject_category" id="subject_category" class="form-control" required> -->
+                  <select name="listAdvisee" type="text" class="form-control "  required>
+                      <center><option value= " ">--Select--</option>
+                      <option value = "Assigned">Assigned Advisee</option>
+                      <option value = "Unassigned">Unassigned Advisee</option>
+                    </select>
+					</div>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+				</form>
+			</div>
+
 
 </section>
-<footer class="section-sm pb-0 border-top border-default">
+<!-- <footer class="section-sm pb-0 border-top border-default">
       <div class="container">
          <div class="row justify-content-between">
-            <!-- <div class="col-md-3 mb-4">
+             <div class="col-md-3 mb-4">
                <a class="mb-4 d-block" href="index.html">
                   <img class="img-fluid" width="150px" src="images/logo.png" alt="LogBook">
                </a>
                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div> -->
+            </div> 
 
 
             <div class="col-lg-2 col-md-3 col-6 mb-4">
@@ -67,7 +84,7 @@
          </div>
       </div>
    </footer>
-
+ -->
 
    <!-- JS Plugins -->
    @include('script')

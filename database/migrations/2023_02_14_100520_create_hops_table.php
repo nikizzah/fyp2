@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hops', function (Blueprint $table) {
-            $table->string('hop_id')->unique();
-            $table->string('hop_password');
+            $table->string('hop_id')->primary();
+            $table->string('hop_password')->default('');
             $table->string('hop_name')->default('');
             $table->timestamps();
         });

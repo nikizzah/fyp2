@@ -20,56 +20,60 @@
 <button  class="btn btn-primary">Back</button>
 </a> -->
 
-<center><br><br><h4>Create Subject</h4><br>
-<button class="button" ><a style= 'color:black' href='/subj'>Back</a></button>
+<center><br><br><h4>Update Advisee</h4><br>
+<button class="button" ><a style= 'color:black' href='/advisee'>Back</a></button>
 <section class="section">
         <div class="col-md-6 form-table">
-				<form method="POST" action="/insertSubj">
-            @if(Session::has('fail'))
-                    <div class= "alert alert-danger">{{Session::get('fail')}}</div>
-                    @endif
-                    @csrf
-                    <!-- from course structure table
+				<form method="POST" action="/editAdvisee">
+               @csrf
 					<div class="form-group" style='text-align:left'>
-						<label for="year">Year</label>
-						<input type="text" name="subject_year" id="subject_year" class="form-control" required>
+						<label for="id">Student ID</label>
+						<input type="text" name="advisee_id" id="advisee_id" value = '{{$display['advisee_id']}}' class="form-control" required>
 					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="name">Semester</label>
-						<input type="text" name="subject_semester" id="subject_semester" class="form-control" required>
-					</div> -->
+						<label for="name">Full Name</label>
+						<input type="text" name="advisee_fname" id="advisee_fname" value = '{{$display['advisee_fname']}}' class="form-control" required>
+					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="subject_code">Subject Code</label>
-						<input type="text" id="subject_code" name="subject_code" class="form-control" required></input>
-                  <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
+						<label for="address">Address</label>
+						<input type="text" id="advisee_address" name="advisee_address" value = '{{$display['advisee_address']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Name</label>
-						<input type="text" name="subject_name" id="subject_name" class="form-control" required>
+						<label for="address">Town</label>
+						<input type="text" id="advisee_town" name="advisee_town" value = '{{$display['advisee_town']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Credit Hour</label>
-						<input type="text" name="subject_credithr" id="subject_credithr" class="form-control" required>
+						<label for="address">State</label>
+						<input type="text" id="advisee_state" name="advisee_state" value = '{{$display['advisee_state']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Category</label>
-						<!-- <input type="text" name="subject_category" id="subject_category" class="form-control" required> -->
-                  <select name="subject_category" type="text" class="form-control "  required>
-                      <option value= "">--Select--</option>
-                      <option value = "Core">Core</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "College Compulsory">College Compulsory</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "MPU">MPU</option>
-                    </select>
+						<label for="address">Postcode</label>
+						<input type="text" id="advisee_postcode" name="advisee_postcode" value = '{{$display['advisee_postcode']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Pre requisite Subject</label>
-						<input type="text" name="subject_prerequisite" id="subject_prerequisite" class="form-control">
-                  
+						<label for="contact">Contact Number</label>
+						<input type="text" id="advisee_contact" name="advisee_contact" value = '{{$display['advisee_contact']}}' class="form-control"></input>
 					</div>
-               
-                    <button type="submit" class="btn btn-primary">Create Subject</button>
+                    <div class="form-group" style='text-align:left'>
+						<label for="email">Email</label>
+						<input type="text" id="advisee_email" name="advisee_email" value = '{{$display['advisee_email']}}' class="form-control"></input>
+					</div>
+                    <div class="form-group" style='text-align:left'>
+						<label for="cgpa">CGPA</label>
+						<input type="text" id="advisee_cgpa" name="advisee_cgpa" value = '{{$display['advisee_cgpa']}}' class="form-control"></input>
+					</div>
+               <div class="form-group" style='text-align:left'>
+						<label for="status">Status</label>
+						<!-- <input type="text" id="advisee_status" name="advisee_status" class="form-control" required></input><br> -->
+                  <br><center><input class="active-button" type="radio" value="Active" id="advisee_status" name="advisee_status" checked>
+                  <label style="color:green" for="active">Active</label>
+                  <input class="graduate-button" type="radio" value="graduated" id="advisee_status" name="advisee_status">
+                  <label style="color:orange" for="graduated">Graduated</label>
+                  <input class="dropout-button" type="radio" value="dropout" id="advisee_status" name="advisee_status">
+                  <label style="color:red" for="dropout">Drop Out</label>
+					</div>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Update Advisee</button>
 				</form>
 			</div>
 </section>

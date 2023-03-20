@@ -48,7 +48,7 @@
                   </div>
                </li> -->
                <a class="" href="/">
-               <img class="img-fluid" width="120px" src="source/images/logo-uniten.png" alt="UNITEN">
+               <img class="img-fluid" width="120px" src="{{url('source/images/logo-uniten.png')}}" alt="UNITEN">
                 </a>
             </ul>
             

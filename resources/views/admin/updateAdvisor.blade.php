@@ -20,56 +20,46 @@
 <button  class="btn btn-primary">Back</button>
 </a> -->
 
-<center><br><br><h4>Create Subject</h4><br>
-<button class="button" ><a style= 'color:black' href='/subj'>Back</a></button>
+<center><br><br><h4>Update Advisor</h4><br>
+<button class="button" ><a style= 'color:black' href='/advisor'>Back</a></button>
 <section class="section">
         <div class="col-md-6 form-table">
-				<form method="POST" action="/insertSubj">
-            @if(Session::has('fail'))
-                    <div class= "alert alert-danger">{{Session::get('fail')}}</div>
-                    @endif
-                    @csrf
-                    <!-- from course structure table
+				<form method="POST" action="/editAdvisor">
+                @csrf
 					<div class="form-group" style='text-align:left'>
-						<label for="year">Year</label>
-						<input type="text" name="subject_year" id="subject_year" class="form-control" required>
+						<label for="id">Staff ID</label>
+						<input type="text" name="advisor_id" id="advisor_id" value = '{{$display['advisor_id']}}' class="form-control" required>
 					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="name">Semester</label>
-						<input type="text" name="subject_semester" id="subject_semester" class="form-control" required>
-					</div> -->
+						<label for="name">Full Name</label>
+						<input type="text" name="advisor_name" id="advisor_name" value = '{{$display['advisor_name']}}' class="form-control" required>
+					</div>
 					<div class="form-group" style='text-align:left'>
-						<label for="subject_code">Subject Code</label>
-						<input type="text" id="subject_code" name="subject_code" class="form-control" required></input>
-                  <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
+						<label for="extension">Extension</label>
+						<input type="text" name="advisor_ext" id="advisor_ext" value = '{{$display['advisor_ext']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Name</label>
-						<input type="text" name="subject_name" id="subject_name" class="form-control" required>
+						<label for="email">Email</label>
+						<input type="text" name="advisor_email" id="advisor_email" value = '{{$display['advisor_email']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Credit Hour</label>
-						<input type="text" name="subject_credithr" id="subject_credithr" class="form-control" required>
+						<label for="position">Position</label>
+						<input type="text" name="advisor_position" id="advisor_position" value = '{{$display['advisor_position']}}' class="form-control"></input>
 					</div>
                     <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Category</label>
-						<!-- <input type="text" name="subject_category" id="subject_category" class="form-control" required> -->
-                  <select name="subject_category" type="text" class="form-control "  required>
-                      <option value= "">--Select--</option>
-                      <option value = "Core">Core</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "College Compulsory">College Compulsory</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "MPU">MPU</option>
-                    </select>
+						<label for="quota">Quota</label>
+						<input type="text" name="advisor_quota" id="advisor_quota" value = '{{$display['advisor_quota']}}' class="form-control"></input>
 					</div>
-                    <div class="form-group" style='text-align:left'>
-						<label for="name">Pre requisite Subject</label>
-						<input type="text" name="subject_prerequisite" id="subject_prerequisite" class="form-control">
-                  
+               <div class="form-group" style='text-align:left'>
+						<label for="status">Status</label>
+						<!-- <input type="text" name="advisor_status" id="advisor_status" class="form-control"></input> -->
+                  <br><center><input class="active-button" type="radio" value="Active" id="advisor_status" name="advisor_status" checked>
+                  <label style="color:green" for="active">Active</label>
+                  <input class="inactive-button" type="radio" value="Inactive" id="advisor_status" name="advisor_status">
+                  <label style="color:red" for="inactive">Inactive</label>
 					</div>
-               
-                    <button type="submit" class="btn btn-primary">Create Subject</button>
+                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+                    <button type="submit" class="btn btn-primary">Update Advisor</button>
 				</form>
 			</div>
 </section>

@@ -18,29 +18,35 @@ class adviseeControl extends Controller
     }
 
     public function register(Request $req) {
-        // $req->validate([
-        //      'admin_id'=>'required|admin_id|unique:admins',
-        //      'admin_name'=>'required',
-        //      'admin_password'=>'required|min:5|max:10'
-        //  ]);
-        $advisee = new advisee();
-        $advisee->advisee_id  = $req->advisee_id;
-        
-        $advisee->advisee_password  = Hash::make($req->advisee_password);
-        
-        $save= $advisee->save();
-        if($save){
-            return back()->with('success', 'Successfully Registered');
-        }else {
-            return back()->with('fail', 'Something wrong');
+        $req->validate([
+            'advisee_id'=>'required',
+            'advisee_fname'=>'required',
+            'advisee_password'=>'required|min:5|max:10'
+        ]); 
+        $check = advisee::where('advisee_id', '=', $req->advisee_id)->first();
+          if($check){
+            return back()->with('fail', 'This id is already registered');
+          }else {
+            $advisee = new advisee();
+            $advisee->advisee_id  = $req->advisee_id;
+            $advisee->advisee_fname  = $req->advisee_fname;
+            $advisee->advisee_password  = Hash::make($req->advisee_password);
+            
+            $save= $advisee->save();
+            if($save){
+                return back()->with('success', 'Successfully Registered');
+            }else {
+                return back()->with('fail', 'Something wrong');
+            }
         }
+        
     }
 
     public function adviseelogin(Request $req) {
-        // $req->validate([
-        //      'admin_id'=>'required|admin_id|unique:admins',
-        //      'admin_password'=>'required'
-        //  ]);
+         $req->validate([
+              'advisee_id'=>'required',
+              'advisee_password'=>'required'
+          ]);
 
         $advisee = advisee::where('advisee_id', '=', $req->advisee_id)->first();
         if ($advisee) {

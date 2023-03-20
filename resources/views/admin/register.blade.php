@@ -52,11 +52,11 @@
 						<input type="text" name="admin_id" id="admin_id" class="form-control" required>
                         <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
 					</div>
-                    <div class="form-group" style='text-align:left'>
+                    <!-- <div class="form-group" style='text-align:left'>
 						<label for="admin_name">Full Name</label>
 						<input type="text" name="admin_name" id="admin_name" class="form-control" required>
                         <span class="text-danger">@error('admin_name')  {{$message}} @enderror</span>
-                    </div>
+                    </div> -->
 					<div class="form-group" style='text-align:left'>
 						<label for="admin_paswword">Password</label>
 						<input type="password" name="admin_password" id="admin_password" class="form-control" required>

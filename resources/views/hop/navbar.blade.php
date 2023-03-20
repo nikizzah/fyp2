@@ -8,28 +8,14 @@
          </button> -->
          -
          <div class="collapse navbar-collapse text-center" id="navigation">
-         <center><br/><h4 style= 'color:black'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4>
-            <ul style='color:black' class="navbar-nav ml-col-8">
-              <!-- <li class="nav-item dropdown">
-                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                     aria-expanded="false">
-                     homepage <i class="ti-angle-down ml-1"></i>
-                  </a>
-                  <div class="dropdown-menu">
-                     <a class="dropdown-item" href="index-full.html">Homepage Full Width</a>
-                     <a class="dropdown-item" href="index-full-left.html">Homepage Full With Left Sidebar</a>
-                     <a class="dropdown-item" href="index-full-right.html">Homepage Full With Right Sidebar</a>
-                     <a class="dropdown-item" href="index-list.html">Homepage List Style</a>
-                     <a class="dropdown-item" href="index-list-left.html">Homepage List With Left Sidebar</a>
-                     <a class="dropdown-item" href="index-list-right.html">Homepage List With Right Sidebar</a>
-                  </div>
-               </li> -->
+         <center><br/><h4 style= 'color:black; margin-left: 400px;'>UNITEN ADVISORY AND STUDY PLANNER SYSTEM</h4>
+            <center><ul style='color:black' class="navbar-nav ">
                
-               <li class="">
-                  <a class="nav-link" href="/">Advisee List</a>
+               <li class="nav-item">
+                  <a class="nav-link" style='margin-left: 400px;' href="/chooseadvisee">Advisee List</a>
                </li>
-               <li class="">
-                  <a class="nav-link" href="/advisee">Advisor List</a>
+               <li class="nav-item">
+                  <a class="nav-link" href="/advisorlist">Advisor List</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="/hoplogout">Logout</a>
@@ -47,9 +33,9 @@
                      <a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a>
                   </div>
                </li> -->
-               <a class="" href="/">
-               <img class="img-fluid" width="120px" src="source/images/logo-uniten.png" alt="UNITEN">
-                </a>
+               <a class="" href="/chooseListAdvisee">
+               <img style='position: absolute; top: 15px; right: 16px' class="img-fluid" width="120px" src="{{url('source/images/logo-uniten.png')}}" alt="UNITEN">
+               </a>
             </ul>
             
             <!-- <select class="m-2 border-0" id="select-language">

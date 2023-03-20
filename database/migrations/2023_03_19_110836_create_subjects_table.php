@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
+
+        if(!Schema::hasTable('subjects')) {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->string('subject_code')->unique();
+            $table->string('subject_code')->primary();
             $table->string('subject_name')->default('');
             $table->string('subject_credithr')->default('');
             $table->string('subject_prerequisite')->default('');
             $table->string('subject_category')->default('');
             $table->string('subject_semester')->default('');
             $table->string('subject_year')->default('');
-            $table->string('subject_grade')->default('');
             $table->timestamps();
         });
+    }
     }
 
     /**
