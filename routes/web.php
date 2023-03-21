@@ -65,9 +65,8 @@ Route::get('/hop', [adminControl::class, 'displayHOP']);
 Route::get('/delHOP/{x}', [adminControl::class, 'deleteHOP']);
 
 //admin cs
-Route::get('/cs', function () {
-    return view('admin.cs');
-});
+Route::get('/cs',[adminControl::class, 'cs']);
+Route::post('/chooseCS', [adminControl::class, 'chooseCS']);
 
 //hop register-login-logout
 Route::get('/hoplogin', [hopControl::class, 'login'])->middleware('hopAlreadyLoggedIn');

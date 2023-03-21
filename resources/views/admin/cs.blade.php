@@ -19,21 +19,48 @@
 <button class="button" ><a style= 'color:black' href='/uploadCourseStructure'>Upload Course Structure</a></button>
 	<div class="container">
 	<br>
-	<table class=table border=2>
+
+
+  <form method="POST" action="/chooseCS">
+    @csrf
+    <div class="form-group" style='text-align:left'>
+		<label for="name">Year: </label>
+     <!-- 1. choose year -->
+    <select style="color:#E4B7A0; border:#E4B7A0" name="year" type="text" class="form-control ">
+      <option value="">Select Year</option>  
+      @foreach ($data as $year) 
+      <option value= "{{$year->subject_year}}">{{$year->subject_year}}</option>
+      @endforeach   
+      </select> <br>
+    <!-- 2. choose semester -->
+    <label for="name">Semester: </label>
+    <select style="color:#E4B7A0; border:#E4B7A0" name="semester" type="text" class="form-control ">
+    <option value="">Select Semester</option>  
+    @foreach ($data as $sem) 
+    <option value= "{{$sem->subject_semester}}">{{$sem->subject_semester}}</option>
+    @endforeach   
+    </select>
+
+		</div>
+    <center><button type="submit" class="btn btn-primary">Confirm</button><br>
+	</form>
+
+
+	<br><table class=table border=2>
                   <tr>
 				  	     <th>&nbsp;</th>
                     <th>&nbsp;</th>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Address</th>
-                    <th>Contact Number</th>
-                    <th>Status</th>
-                    <th>Email</th>
-                    <th>CGPA</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Credit Hour</th>
+                    <th>Subject Year</th>
+                    <th>Subject Semester</th>
+                    <th>Subject Category</th>
+                    <th>Pre requisite</th>
                   </tr>
                   
               </table>
-              <center><button class="button" style='margin-leftt:20px'><a href='/createAdvisee' style='color:black'>Create Advisee</a></button>
+              
    </section>
 
    <!-- JS Plugins -->

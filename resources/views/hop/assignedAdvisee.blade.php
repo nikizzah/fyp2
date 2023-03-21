@@ -37,9 +37,9 @@
                   @foreach ($data as $display)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$display["advisee_id"]}}</td>
-                    <td>{{$display["advisee_fname"]}}</td>
-                    <td>{{$display["advisor_name"]}}</td>
+                    <td>{{$display->advisee_id}}</td>
+                    <td>{{$display->advisee_fname}}</td>
+                    <td>{{$display->advisor_name}}</td>
 				  </tr>
               
               @endforeach

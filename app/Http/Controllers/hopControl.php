@@ -97,15 +97,17 @@ class hopControl extends Controller
         // $assigned = Advisee::whereHas('advisor', function($query) use ($search) {
         //     $query->where('advisee_fname', 'LIKE','%'.$search.'%'); })->get();
     
-        $assigned = DB::table('advisees')
+        $assigned = advisee::select('advisees.*', 'advisors.advisor_name')
             ->where('advisee_fname', 'LIKE','%'.$search.'%')
-            ->whereNotNull('advisor_id')
-           ->get();
-    
-        $advisee = json_decode($assigned, true);
+            ->join('advisors', 'advisors.advisor_id', '=', 'advisees.advisor_id')
+            ->get();
+            //->whereNotNull('advisor_id')
+           
+        // $advisee = json_decode($assigned, true);
+        // $value = DB::table('advisors')->where('advisor_id' , $advisee->advisor_id)->get();
         
-        return view('hop.searchAssigned',['assigned'=>$advisee]);
-    
+        return view('hop.searchAssigned',['assigned'=>$assigned]);
+            //return $assigned;
     }
 
     public function unassignedAdvisee() {
@@ -120,22 +122,35 @@ class hopControl extends Controller
 
    public function assign(Request $req) {
 
+        $id = $req->advisor_id;
         $advisee = advisee::find($req->advisee_id);
-        $value = DB::table('advisors')->where('advisor_name' , $req->advisor_name)->get();
-        $advisor = json_decode($value, true);
-        //$value = DB::select('SELECT advisor_id FROM advisors WHERE advisor_name = ?' , [$req->advisor_name]);
+        // $value = DB::table('advisors')->where('advisor_name' , $req->assign)->first();
+        // $advisor = json_decode($value, true);
+        //$value = DB::select('SELECT * FROM advisors WHERE advisor_name = ?' , [$req->assign]);
         //DB::table('advisees')->select('advisor_id')->where('advisee_id', $req->advisee_id)->insert(['advisor_id' => $advisor->advisor_id]);
+        $advisor = advisor::find($id);
+        $max = 2;
+        DB::table('advisors')
+            ->where('advisor_id', $id)
+            ->increment('advisor_quota',['max_advisor_quota' => $max]);
 
-        $advisee->advisor_id = $advisor->advisor_id;
+            // if ($add > $max) {
+            //     // Display an error message here
+            //     return response()->json(['error' => 'You have exceeded the maximum value.']);
+            // } else {
+            //     return response()->json(['success' => 'You have assigned an advisee.']);
+            // }
+
+        // if($advisor = true) {
+        //     $advisor->advisor_quota
+        // }
+        // $advisee->advisor_id = $id;
+
+        // $value = DB::table('advisees')
+        //  ->join('advisors','advisors.advisor_id', '=', 'advisees.advisor_id');
 
         $advisee->save();
 
-        // $record = advisors::where('advisor_name', $req->advisor_name)->first();
-        // $advisee = advisee::find($req->advisee_id);
-        // $advisee->advisor_id = $record->advisor_id;
-        // $advisee->save();
-
-        
         return redirect('/unassignedAdvisee');
    }
 
@@ -150,7 +165,6 @@ class hopControl extends Controller
 
     $advisee = json_decode($unassigned, true);
     
-    $value = DB::select('SELECT advisor_id FROM advisors WHERE advisor_name = ?' , [$req->advisor_name]);
     $advisor = advisor::all();
     return view('hop.searchUnassigned',['unassigned'=>$advisee, 'advisor'=>$advisor]);
 

@@ -13,8 +13,6 @@ return new class extends Migration
      */
     public function up()
     {
-
-        if(!Schema::hasTable('subjects')) {
         Schema::create('subjects', function (Blueprint $table) {
             $table->string('subject_code')->primary();
             $table->string('subject_name')->default('');
@@ -25,7 +23,6 @@ return new class extends Migration
             $table->string('subject_year')->default('');
             $table->timestamps();
         });
-    }
     }
 
     /**

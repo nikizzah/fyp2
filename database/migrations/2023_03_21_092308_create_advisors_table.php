@@ -13,10 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-
-        if(!Schema::hasTable('advisors')) {
         Schema::create('advisors', function (Blueprint $table) {
-            
             $table->string('advisor_id')->primary();
             $table->string('advisor_password')->default('');
             $table->string('advisor_name')->default('');
@@ -27,8 +24,6 @@ return new class extends Migration
             //$table->string('advisor_status')->default('');
             $table->timestamps();
         });
-    }
-
     }
 
     /**

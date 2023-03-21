@@ -303,4 +303,27 @@ class adminControl extends Controller
         DB::delete('delete from hops where hop_id=?', [$hop_id]);
         return redirect('/hop');
     }
+
+    //cs
+
+    public function cs (){
+        $subject = subject::all();
+       return view('admin.cs', ['data'=>$subject]);
+    }
+    public function chooseCS(Request $req) {
+
+        $value = DB::table('advisees')->where('advisor_id' , NULL)->get();
+        //$value = DB::select('SELECT * FROM advisees WHERE advisor_id = ?' , [''])
+        $unassigned = json_decode($value, true);
+
+        $advisor = advisor::all();
+       return view('hop.unassignedAdvisee', ['data'=>$unassigned, 'advisor'=>$advisor]);
+
+        $year = subject::find($req->year);
+
+        $cs = DB::table('subjects')
+        ->where('subject_year', )
+        ->whereNULL('advisor_id')
+        ->get();
+    }
 }
