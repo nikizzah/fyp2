@@ -36,15 +36,20 @@
                     <th>&nbsp;</th>
                   </tr>
                   <form action="/assign" method ='post'>
+                  @if(Session::has('error'))
+                    <div class= "alert alert-danger">{{Session::get('error')}}</div>
+                    @endif
                   @csrf 
                   @foreach ($data as $display)
                   <tr>
                     <td> {{ $loop->iteration }}</td>
-                    <td><input style="border:none; background-color: transparent;" type="text" name='advisee_id' id="advisee_id" value="{{$display["advisee_id"]}}" readonly></td>
-                    <td><input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$display["advisee_fname"]}}" readonly></td>
+                    <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display['advisee_id']}}</td>
+                    <!-- <td><input style="border:none; background-color: transparent;" type="text" name='advisee_id' id="advisee_id" value="{{$display["advisee_id"]}}" readonly></td> -->
+                    <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display["advisee_fname"]}}</td>
+                    <!-- <input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$display["advisee_fname"]}}" readonly> -->
                     <td>
                            <select style="color:#E4B7A0; border:#E4B7A0" name="advisor_id" type="text" class="form-control ">
-                           <option value="">Select Advisor</option>  
+                           <option value="" disabled="true" selected= "true">Select Advisor</option>  
                            @foreach ($advisor as $assign) 
                            <option value= "{{$assign['advisor_id']}}">{{$assign['advisor_name']}}</option>
                            @endforeach   

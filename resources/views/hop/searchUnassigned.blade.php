@@ -46,7 +46,7 @@
             <td><input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$unassign["advisee_fname"]}}" readonly></td>
             <td>
                 <select style="color:#E4B7A0; border:#E4B7A0" name="assign" type="text" class="form-control ">
-                <option value="">Select Advisor</option>  
+                <option value="" disabled="true" selected= "true">Select Advisor</option>  
                 @foreach ($advisor as $assign) 
                     <option value= "{{$assign->advisor_name}}">{{$assign->advisor_name}}</option>
                 @endforeach   

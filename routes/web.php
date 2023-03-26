@@ -66,7 +66,8 @@ Route::get('/delHOP/{x}', [adminControl::class, 'deleteHOP']);
 
 //admin cs
 Route::get('/cs',[adminControl::class, 'cs']);
-Route::post('/chooseCS', [adminControl::class, 'chooseCS']);
+Route::get('/chooseYear', [adminControl::class, 'chooseYear']);
+Route::get('/chooseSemester/{year}', [adminControl::class, 'chooseSemester']);
 
 //hop register-login-logout
 Route::get('/hoplogin', [hopControl::class, 'login'])->middleware('hopAlreadyLoggedIn');
@@ -84,15 +85,18 @@ Route::post('/chooseListAdvisee', [hopControl::class, 'chooseListAdvisee']);
 //hop assigned advisee
 Route::get('/assignedAdvisee', [hopControl::class, 'assignedAdvisee']);
 Route::get('/searchAssignedAdvisee', [hopControl::class, 'searchAssigned']);
+Route::get('/infoAssigned/{x}', [hopControl::class, 'infoAssigned']);
 
 //hop advisor list
 Route::get('/advisorlist', [hopControl::class, 'advisor']);
 Route::get('/searchAdvisor', [hopControl::class, 'searchAdvisor']);
+Route::get('/infoAdvisor/{x}', [hopControl::class, 'infoAdvisor']);
 
 //hop unassigned advisee
 Route::get('/unassignedAdvisee', [hopControl::class, 'unassignedAdvisee']);
 Route::post('/assign', [hopControl::class, 'assign']);
 Route::get('/searchUnassigned', [hopControl::class, 'searchUnassigned']);
+Route::get('/infoUnassigned/{x}', [hopControl::class, 'infoUnassigned']);
 
 //advisee register-login-logout
 Route::get('/adviseelogin', [adviseeControl::class, 'login'])->middleware('adviseeAlreadyLoggedIn');

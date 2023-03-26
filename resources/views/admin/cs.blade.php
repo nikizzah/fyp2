@@ -27,18 +27,16 @@
 		<label for="name">Year: </label>
      <!-- 1. choose year -->
     <select style="color:#E4B7A0; border:#E4B7A0" name="year" type="text" class="form-control ">
-      <option value="">Select Year</option>  
-      @foreach ($data as $year) 
-      <option value= "{{$year->subject_year}}">{{$year->subject_year}}</option>
+      <option value="" disabled ="true" selected="true">Select Year</option>  
+      @foreach ($year as $value) 
+      <option value= "{{$value->subject_year}}">{{$value->subject_year}}</option>
       @endforeach   
       </select> <br>
     <!-- 2. choose semester -->
     <label for="name">Semester: </label>
     <select style="color:#E4B7A0; border:#E4B7A0" name="semester" type="text" class="form-control ">
-    <option value="">Select Semester</option>  
-    @foreach ($data as $sem) 
-    <option value= "{{$sem->subject_semester}}">{{$sem->subject_semester}}</option>
-    @endforeach   
+    <option value="" disabled ="true" selected="true">Select Semester</option>
+  
     </select>
 
 		</div>

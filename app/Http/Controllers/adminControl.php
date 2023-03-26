@@ -308,22 +308,35 @@ class adminControl extends Controller
 
     public function cs (){
         $subject = subject::all();
-       return view('admin.cs', ['data'=>$subject]);
+       return view('admin.cs', ['year'=>$subject]);
     }
-    public function chooseCS(Request $req) {
 
-        $value = DB::table('advisees')->where('advisor_id' , NULL)->get();
-        //$value = DB::select('SELECT * FROM advisees WHERE advisor_id = ?' , [''])
-        $unassigned = json_decode($value, true);
+    public function chooseYear(Request $req) {
 
-        $advisor = advisor::all();
-       return view('hop.unassignedAdvisee', ['data'=>$unassigned, 'advisor'=>$advisor]);
+        $year = DB::table('subjects')
+            ->select('subject_semester')
+            ->where('subject_year', $req->year)->get();
+        
+            return response()->json($year);
+    //     $value = DB::table('advisees')->where('advisor_id' , NULL)->get();
+    //     //$value = DB::select('SELECT * FROM advisees WHERE advisor_id = ?' , [''])
+    //     $unassigned = json_decode($value, true);
 
-        $year = subject::find($req->year);
+    //     $advisor = advisor::all();
+    //    return view('hop.unassignedAdvisee', ['data'=>$unassigned, 'advisor'=>$advisor]);
 
-        $cs = DB::table('subjects')
-        ->where('subject_year', )
-        ->whereNULL('advisor_id')
-        ->get();
+    //     $year = subject::find($req->year);
+
+    //     $cs = DB::table('subjects')
+    //     ->where('subject_year', )
+    //     ->whereNULL('advisor_id')
+    //     ->get();
+    }
+
+    public function chooseSemester($value) {
+        $sem = DB::table('subjects')
+            ->where('subject_year', $value)->get();
+
+            return response()->json($sem);
     }
 }

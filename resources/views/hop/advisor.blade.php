@@ -36,14 +36,14 @@
                   @foreach ($data as $display)
                   <tr>
                      <td>{{ $loop->iteration }}</td>
-                     <td>{{$display["advisor_quota"]}}</td>
-                     <td>{{$display["advisor_name"]}}</td>
+                     <td><a style="color:black" href = {{"infoAdvisor/".$display['advisor_id']}}>{{$display["advisor_quota"]}}</td>
+                     <td><a style="color:black" href = {{"infoAdvisor/".$display['advisor_id']}}>{{$display["advisor_name"]}}</td>
 				  </tr>
               @endforeach
               </table>
 
 </section>
-
+<!-- color:#B67D67 -->
    <!-- JS Plugins -->
    @include('script')
 </body>

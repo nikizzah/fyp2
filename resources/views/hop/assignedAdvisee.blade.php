@@ -37,8 +37,8 @@
                   @foreach ($data as $display)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$display->advisee_id}}</td>
-                    <td>{{$display->advisee_fname}}</td>
+                    <td><a style="color:black" href = {{"infoAssigned/".$display->advisee_id}}>{{$display->advisee_id}}</td>
+                    <td><a style="color:black" href = {{"infoAssigned/".$display->advisee_id}}>{{$display->advisee_fname}}</td>
                     <td>{{$display->advisor_name}}</td>
 				  </tr>
               

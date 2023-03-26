@@ -4,3 +4,27 @@
 
    <!-- Main Script -->
    <script src="js/script.js"></script>
+   <script type = "text/javascript">
+      $(document).ready(function(){
+         $(#year).on('change', 'subject_year', function() {
+            var year = $(this).val();
+            if (year) {
+               $.ajax({
+                  url: '/chooseSemester/'+year,
+                  type: 'GET';
+                  dataType: 'json';
+                  success: function(data) {
+                     $('#semester').empty();
+                     $.each(data, function(key, value){
+                        $('#semester').append('<option value="'+ key +'">'+ value +'</option>');
+                     });
+                     }
+                  });
+               }else{
+                  $('#semester').empty();
+               }
+            });
+         });
+</script>
+
+                 
