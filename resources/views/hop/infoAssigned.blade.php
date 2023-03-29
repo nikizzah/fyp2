@@ -6,14 +6,15 @@
 @include('hop.navbar')
 
 <body>
+@foreach($data as $display)
 
 <center><br><br><h4>Advisee Info</h4><br>
-<button class="button" ><a style= 'color:black' href='/manageadvisor'>Change Advisor</a></button>
+<button class="button" ><a style="color:black" href = {{"/infoAssigned/manageadvisor/".$display['advisee_id']}}>Change Advisor</a></button>
 <section class="section">
 <div class="col-md-6 form-table">
 				<form method="POST" action="/editAdvisee">
                @csrf
-               @foreach($data as $display)
+               
 					<div class="form-group" style='text-align:left'>
 						<label for="id">Student ID</label>
 						<input type="text" name="advisee_id" id="advisee_id" value = '{{$display['advisee_id']}}' class="form-control" readonly>

@@ -43,12 +43,12 @@
                   @foreach ($data as $display)
                   <tr>
                     <td> {{ $loop->iteration }}</td>
-                    <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display['advisee_id']}}</td>
-                    <!-- <td><input style="border:none; background-color: transparent;" type="text" name='advisee_id' id="advisee_id" value="{{$display["advisee_id"]}}" readonly></td> -->
-                    <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display["advisee_fname"]}}</td>
-                    <!-- <input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$display["advisee_fname"]}}" readonly> -->
+                    <!-- <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display['advisee_id']}}</td> -->
+                    <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}><input style="border:none; background-color: transparent;" type="text" name='advisee_id[]' id="advisee_id" value="{{$display["advisee_id"]}}" readonly onfocus="this.style.border = 'none'; this.style.outline = 'none';"></td>
+                    <!-- <td><a style="color:black" href = {{"infoUnassigned/".$display['advisee_id']}}>{{$display["advisee_fname"]}}</td> -->
+                    <td><a style="color:black; border-color:transparent" href = {{"infoUnassigned/".$display['advisee_id']}}><input style="border:none; background-color: transparent;" type="text" name="advisee_fname[]" value="{{$display["advisee_fname"]}}" readonly onfocus="this.style.border = 'none'; this.style.outline = 'none';"></td>
                     <td>
-                           <select style="color:#E4B7A0; border:#E4B7A0" name="advisor_id" type="text" class="form-control ">
+                           <select style="color:#E4B7A0; border:#E4B7A0" name="advisor_id[]" type="text" class="form-control ">
                            <option value="" disabled="true" selected= "true">Select Advisor</option>  
                            @foreach ($advisor as $assign) 
                            <option value= "{{$assign['advisor_id']}}">{{$assign['advisor_name']}}</option>

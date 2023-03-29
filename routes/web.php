@@ -86,6 +86,8 @@ Route::post('/chooseListAdvisee', [hopControl::class, 'chooseListAdvisee']);
 Route::get('/assignedAdvisee', [hopControl::class, 'assignedAdvisee']);
 Route::get('/searchAssignedAdvisee', [hopControl::class, 'searchAssigned']);
 Route::get('/infoAssigned/{x}', [hopControl::class, 'infoAssigned']);
+Route::get('/infoAssigned/manageadvisor/{x}', [hopControl::class, 'manageadvisor']);
+Route::post('/change', [hopControl::class, 'changeadvisor']);
 
 //hop advisor list
 Route::get('/advisorlist', [hopControl::class, 'advisor']);
