@@ -32,13 +32,14 @@
 				  	     <th>&nbsp;</th>
                     <th>Student ID</th>
                     <th>Student Name</th>
-                    <th>Assign Advisor</th>
                     <th>&nbsp;</th>
                   </tr>
                   <form action="/assign" method ='post'>
                   @if(Session::has('error'))
                     <div class= "alert alert-danger">{{Session::get('error')}}</div>
-                    @endif
+                  @elseif(Session::has('success'))
+                     <div class= "alert alert-success">{{Session::get('success')}}</div>
+                  @endif
                   @csrf 
                   @foreach ($data as $display)
                   <tr>
@@ -55,13 +56,12 @@
                            @endforeach   
                         </select>
                      </td>
-                     <td><button type="submit" class="btn btn-primary">Assign Advisor</button>
-</form>
 				  </tr>
               
               @endforeach
               </table>
-</table>
+              <button type="submit" class="btn btn-primary">Assign Advisor</button>
+</form>
 </section>
 <!-- <footer class="section-sm pb-0 border-top border-default">
       <div class="container">

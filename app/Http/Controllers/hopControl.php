@@ -156,24 +156,47 @@ class hopControl extends Controller
 
    public function assign(Request $req) {
 
-        $id = $req->advisor_id;
-        $advisee = advisee::find($req->advisee_id);
-        
-        $max_quota = 30; // Set maximum increment value to 10
-        $advisor = DB::table('advisors')->where('advisor_id', $id)->first();
+    $advisorid = $req->advisor_id;
+    $adviseeid = $req->advisee_id;
+    $adviseename = $req->advisee_fname;
+    
+    for ($i = 0; $i < count($adviseeid); $i++) {
+        $advisee = Advisee::find($adviseeid[$i]);
+    
+        $max_quota = 30; // Set maximum increment value to 30
+        $advisor = Advisor::where('advisor_id', $advisorid[$i])->first();
         $quota = intval($advisor->advisor_quota);
-        
+    
         if ($quota <= $max_quota) {
-            $advisee->advisor_id = $id;
-            $advisee->save();
-
+            $advisee->advisor_id = $advisorid[$i];
+    
             $increase = $quota + 1;
-            DB::table('advisors')->where('advisor_id', $id)->update(['advisor_quota' => (string) $increase]);
+            Advisor::where('advisor_id', $advisorid[$i])->update(['advisor_quota' => (string) $increase]);
+            $advisee->save();
+            return redirect('/unassignedAdvisee')->with('success', 'Advisor has been successfully assigned');
         } else {
-            return back()->with('error', 'Advisor has been fully assigned');
+            return redirect('/unassignedAdvisee')->with('error', 'Advisor has been fully assigned');
         }
+    }
+    
+        // $id = $req->advisor_id;
+        // $advisee = advisee::find($req->advisee_id);
+        
+        // $max_quota = 30; // Set maximum increment value to 10
+        // $advisor = DB::table('advisors')->where('advisor_id', $id)->first();
+        // $quota = intval($advisor->advisor_quota);
+        
+        // if ($quota <= $max_quota) {
+        //     $advisee->advisor_id = $id;
+        //     $advisee->save();
 
-        return redirect('/unassignedAdvisee');
+        //     $increase = $quota + 1;
+        //     DB::table('advisors')->where('advisor_id', $id)->update(['advisor_quota' => (string) $increase]);
+        // } else {
+        //     return back()->with('error', 'Advisor has been fully assigned');
+        // }
+
+        // return redirect('/unassignedAdvisee');
    }
 
    public function changeadvisor(Request $req){
