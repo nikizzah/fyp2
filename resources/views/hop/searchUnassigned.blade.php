@@ -35,15 +35,14 @@
         <th>Student ID</th>
         <th>Student Name</th>
         <th>Assign Advisor</th>
-        <th>&nbsp;</th>
     </tr>
     <form action="/assign" method ='post'>
         @csrf
         @foreach ($unassigned as $unassign)
         <tr>
             <td> {{ $loop->iteration }}</td>
-            <td><input style="border:none; background-color: transparent;" type="text" name='advisee_id' id="advisee_id" value="{{$unassign["advisee_id"]}}" readonly></td>
-            <td><input style="border:none; background-color: transparent;" type="text" name="advisee_fname" value="{{$unassign["advisee_fname"]}}" readonly></td>
+            <td><a style="color:black" href = {{"infoUnassigned/".$unassign['advisee_id']}}><input style="border:none; background-color: transparent;" type="text" name='advisee_id[]' id="advisee_id" value="{{$unassign["advisee_id"]}}" readonly onfocus="this.style.border = 'none'; this.style.outline = 'none';"></td>
+            <td><a style="color:black; border-color:transparent" href = {{"infoUnassigned/".$unassign['advisee_id']}}><input style="border:none; background-color: transparent;" type="text" name="advisee_fname[]" value="{{$unassign["advisee_fname"]}}" readonly onfocus="this.style.border = 'none'; this.style.outline = 'none';"></td>
             <td>
                 <select style="color:#E4B7A0; border:#E4B7A0" name="assign" type="text" class="form-control ">
                 <option value="" disabled="true" selected= "true">Select Advisor</option>  
@@ -52,7 +51,7 @@
                 @endforeach   
                 </select>
             </td>
-            <td><button type="submit" class="btn btn-primary">Assign Advisor</button>
+            
 		</tr>
         @endforeach
         @else
@@ -60,6 +59,7 @@
         @endif
               
 </table>
+<button type="submit" class="btn btn-primary">Assign Advisor</button>
 @endif
 </table>
 </section>

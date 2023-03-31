@@ -25,17 +25,25 @@ class hopControl extends Controller
             'hop_id'=>'required',
             'hop_name'=>'required',
             'hop_password'=>'required|min:5|max:10'
-        ]); 
-        $check = hop::where('hop_id', '=', $req->hop_id)->first();
-          if($check){
+        ]);
+        $check = DB::table('advisors')->where('advisor_id', '=', (string) $req->hop_id)->get();
+        $hop = json_decode($check, true);
+        if (!empty($hop[0]['advisor_id']) && !empty($hop[0]['advisor_password'])) {
             return back()->with('fail', 'This id is already registered');
-          }else {
-            $hop = new hop();
-            $hop->hop_id  = $req->hop_id;
-            $hop->hop_name  = $req->hop_name;
-            $hop->hop_password  = Hash::make($req->hop_password);
+        }elseif (!empty($hop[0]['advisor_id']) && empty($hop[0]['advisor_password'])){
+            //$hop->hop_id  = $req->hop_id;
+            //$hop->hop_name  = $req->hop_name;
+            //$hop->hop_password  = Hash::make($req->hop_password);
+            DB::table('advisors')->where('advisor_id', $req->hop_id)->update(['advisor_password' => (string) Hash::make($req->hop_password)]);
+            //$save= $advisor->save();
+                return back()->with('success', 'Successfully Registered');
+        }else {
+            $advisor = new advisor();
+            $advisor->advisor_id  = $req->hop_id;
+            $advisor->advisor_name  = $req->hop_name;
+            $advisor->advisor_password  = Hash::make($req->hop_password);
             
-            $save= $hop->save();
+            $save= $advisor->save();
             if($save){
                 return back()->with('success', 'Successfully Registered');
             }else {
@@ -51,9 +59,9 @@ class hopControl extends Controller
               'hop_password'=>'required|min:5|max:10'
           ]);
 
-        $hop = hop::where('hop_id', '=', $req->hop_id)->first();
+        $hop = advisor::where('advisor_id', '=', $req->hop_id)->first();
         if ($hop) {
-            if(Hash::check($req->hop_password, $hop->hop_password)) {
+            if(Hash::check($req->hop_password, $hop->advisor_password)) {
                 $req->session()->put('hoploginId', $hop->hop_id);
                 return redirect('/chooseadvisee');
             }else {
@@ -197,6 +205,28 @@ class hopControl extends Controller
         // }
 
         // return redirect('/unassignedAdvisee');
+   }
+
+   public function assignalone(Request $req) {
+        $id = $req->advisor_id;
+        $advisee = advisee::find($req->advisee_id);
+        
+        $max_quota = 30; // Set maximum increment value to 10
+        $advisor = DB::table('advisors')->where('advisor_id', $id)->first();
+        $quota = intval($advisor->advisor_quota);
+        
+        if ($quota <= $max_quota) {
+            $advisee->advisor_id = $id;
+            $advisee->save();
+
+            $increase = $quota + 1;
+           DB::table('advisors')->where('advisor_id', $id)->update(['advisor_quota' => (string) $increase]);
+           return redirect('/unassignedAdvisee')->with('success', 'Advisor has been successfully assigned');
+        } else {
+            return back()->with('error', 'Advisor has been fully assigned');
+        }
+
+        //return redirect('/unassignedAdvisee');
    }
 
    public function changeadvisor(Request $req){

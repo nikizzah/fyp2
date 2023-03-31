@@ -8,7 +8,6 @@
 -->
 
 <html lang="en-us">
-
 @include('css')
 @include('admin.navbar')
 
@@ -24,19 +23,18 @@
   <form method="POST" action="/chooseCS">
     @csrf
     <div class="form-group" style='text-align:left'>
-		<label for="name">Year: </label>
+		<label for="year">Year: </label>
      <!-- 1. choose year -->
-    <select style="color:#E4B7A0; border:#E4B7A0" name="year" type="text" class="form-control ">
+     <select id="year" style="color:black; border:#E4B7A0" name="year" type="text" class="form-control ">
       <option value="" disabled ="true" selected="true">Select Year</option>  
       @foreach ($year as $value) 
-      <option value= "{{$value->subject_year}}">{{$value->subject_year}}</option>
+      <option value= "{{$value}}">{{$value}}</option>
       @endforeach   
       </select> <br>
     <!-- 2. choose semester -->
-    <label for="name">Semester: </label>
-    <select style="color:#E4B7A0; border:#E4B7A0" name="semester" type="text" class="form-control ">
-    <option value="" disabled ="true" selected="true">Select Semester</option>
-  
+    <label for="sem">Semester: </label>
+    <select style="color:black; border:#E4B7A0" name="semester" type="text" class="form-control ">
+      <option value="" disabled ="true" selected="true">Select Semester</option>
     </select>
 
 		</div>
@@ -62,6 +60,7 @@
    </section>
 
    <!-- JS Plugins -->
-   @include('script')
+    @include('script')
+
 </body>
 </html>

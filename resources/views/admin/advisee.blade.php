@@ -22,7 +22,9 @@
   <form method="POST" action="/importAdvisee" enctype="multipart/form-data">
       @if(Session::has('fail'))
           <div class= "alert alert-danger">{{Session::get('fail')}}</div>
-      @endif
+          @elseif(Session::has('success'))
+                    <div class= "alert alert-success">{{Session::get('success')}}</div>
+                    @endif
       @csrf
       <div class="form-group" style='text-align:left'>
         <center><input type="file" id="advisee_file" name="advisee_file" class="upload-file" required>

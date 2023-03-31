@@ -11,7 +11,7 @@
 <!-- <button class="button" ><a style= 'color:black' href='/advisor'>Back</a></button> -->
 <section class="section">
 <div class="col-md-6 form-table">
-				<form method="POST" action="/assign">
+				<form method="POST" action="/assignone">
                 @if(Session::has('error'))
                     <div class= "alert alert-danger">{{Session::get('error')}}</div>
                     @endif

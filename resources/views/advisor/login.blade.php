@@ -53,6 +53,7 @@
 						<label for="advisor_password">Password</label>
 						<input type="password" name="advisor_password" id="advisor_password" class="form-control" required>
                   <span class="text-danger">@error('advisor_password')  {{$message}} @enderror</span>
+                  <a style='color:#E4B7A0; text-decoration:underline; font-size:11px; right' href='hopregister'>Forgot Password?</a><br>
                </div>
 					
                     <!-- <button type="reset" class="btn btn-primary">Reset</button> -->

@@ -66,8 +66,9 @@ Route::get('/delHOP/{x}', [adminControl::class, 'deleteHOP']);
 
 //admin cs
 Route::get('/cs',[adminControl::class, 'cs']);
-Route::get('/chooseYear', [adminControl::class, 'chooseYear']);
+//Route::get('/chooseYear', [adminControl::class, 'chooseYear']);
 Route::get('/chooseSemester/{year}', [adminControl::class, 'chooseSemester']);
+
 
 //hop register-login-logout
 Route::get('/hoplogin', [hopControl::class, 'login'])->middleware('hopAlreadyLoggedIn');
@@ -99,6 +100,8 @@ Route::get('/unassignedAdvisee', [hopControl::class, 'unassignedAdvisee']);
 Route::post('/assign', [hopControl::class, 'assign']);
 Route::get('/searchUnassigned', [hopControl::class, 'searchUnassigned']);
 Route::get('/infoUnassigned/{x}', [hopControl::class, 'infoUnassigned']);
+Route::post('/assignone', [hopControl::class, 'assignalone']);
+
 
 //advisee register-login-logout
 Route::get('/adviseelogin', [adviseeControl::class, 'login'])->middleware('adviseeAlreadyLoggedIn');

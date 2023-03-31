@@ -53,7 +53,9 @@
 						<label for="hop_password">Password</label>
 						<input type="password" name="hop_password" id="hop_password" class="form-control" required>
                   <span class="text-danger">@error('hop_password')  {{$message}} @enderror</span>
+                  <a style='color:#E4B7A0; text-decoration:underline; font-size:11px; right' href='hopregister'>Forgot Password?</a><br>
                </div>
+               <!-- <a style='color:#E4B7A0; text-decoration:underline; font-size:11px' href='hopregister'>Forgot Password?</a><br> -->
 					
                     <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
                     <button type="submit" class="btn btn-primary">Login</button>

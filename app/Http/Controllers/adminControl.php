@@ -98,6 +98,7 @@ class adminControl extends Controller
         $value = new advisee();
 
         $value->advisee_id = $req->advisee_id;
+        $advisee->advisee_password  = Hash::make($req->advisee_password);
         $value->advisee_fname = $req->advisee_fname;
         $value->advisee_address = $req->advisee_address;
         $value->advisee_town = $req->advisee_town;
@@ -127,6 +128,7 @@ class adminControl extends Controller
                 $value = advisee::find($req->advisee_id);
 
                 $value->advisee_id = $req->advisee_id;
+                $advisee->advisee_password  = Hash::make($req->advisee_password);
                 $value->advisee_fname = $req->advisee_fname;
                 $value->advisee_address = $req->advisee_address;
                 $value->advisee_town = $req->advisee_town;
@@ -162,6 +164,7 @@ class adminControl extends Controller
         $value = new advisor();
 
         $value->advisor_id = $req->advisor_id;
+        $advisor->advisor_password  = Hash::make($req->advisor_password);
         $value->advisor_name = $req->advisor_name;
         $value->advisor_ext = $req->advisor_ext;
         $value->advisor_email = $req->advisor_email;
@@ -214,7 +217,7 @@ class adminControl extends Controller
 
     public function importAdvisor(Request $req){
         Excel::import(new AdvisorImport, $req->advisor_file);
-        return redirect('/advisor');
+        return redirect('/advisor')->with('success', 'File uploaded successfully.');
     }
 
     //subject
@@ -275,7 +278,7 @@ class adminControl extends Controller
 
     public function importSubj(Request $req){
         Excel::import(new SubjectImport, $req->subject_file);
-        return redirect('/subj');
+        return redirect('/subj')->with('success', 'File uploaded successfully.');
     }
 
     //hop
@@ -307,17 +310,17 @@ class adminControl extends Controller
     //cs
 
     public function cs (){
-        $subject = subject::all();
-       return view('admin.cs', ['year'=>$subject]);
+        $year = DB::table('subjects')->pluck('subject_year');
+        return view('admin.cs', ['year'=>$year]);
     }
 
-    public function chooseYear(Request $req) {
+    public function chooseYear() {
 
         $year = DB::table('subjects')
             ->select('subject_semester')
             ->where('subject_year', $req->year)->get();
         
-            return response()->json($year);
+            return view('admin.cs', ['year'=>$year]);
     //     $value = DB::table('advisees')->where('advisor_id' , NULL)->get();
     //     //$value = DB::select('SELECT * FROM advisees WHERE advisor_id = ?' , [''])
     //     $unassigned = json_decode($value, true);
@@ -333,10 +336,10 @@ class adminControl extends Controller
     //     ->get();
     }
 
-    public function chooseSemester($value) {
-        $sem = DB::table('subjects')
-            ->where('subject_year', $value)->get();
-
-            return response()->json($sem);
+    public function chooseSemester($year) {
+        $sem = DB::table('subjects')->where('subject_year', $year)->pluck('subject_semester');
+        dd($sem);
+        return response()->json($sem);
     }
+    
 }

@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\advisee;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Illuminate\Support\Facades\Hash;
 
 class AdviseeImport implements ToModel, WithHeadingRow
 {
@@ -17,6 +18,7 @@ class AdviseeImport implements ToModel, WithHeadingRow
     {
         return new advisee([
             'advisee_id'=> $row['advisee_id'],
+            'advisee_password' => Hash::make($row['advisee_password']),
             'advisee_fname'=> $row['advisee_fname'],
             'advisee_address'=> $row['advisee_address'],
             'advisee_town'=> $row['advisee_town'],

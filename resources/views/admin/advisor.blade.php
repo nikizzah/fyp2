@@ -26,12 +26,14 @@
    <form method="POST" action="/importAdvisor" enctype="multipart/form-data">
             @if(Session::has('fail'))
                     <div class= "alert alert-danger">{{Session::get('fail')}}</div>
+                    @elseif(Session::has('success'))
+                    <div class= "alert alert-success">{{Session::get('success')}}</div>
                     @endif
                @csrf
                <div class="form-group" style='text-align:left'>
                   <center><input type="file" id="advisor_file" name="advisor_file" class="upload-file" required>
                   <!-- <label style="background-color: #F3BB9E; font-size: 20px; width:200px; height: 50px; align-items:center; justify-content:center" for="advisee_file"><span class="material-symbols-outlined">upload_file</span> Choose File</label> -->
-					      </div>
+					</div>
                     <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
                     <center><button type="submit" class="btn btn-primary">Create Advisor</button>
 				</form>
