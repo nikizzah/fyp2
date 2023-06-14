@@ -10,122 +10,92 @@
 <html lang="en-us">
 
 @include('css')
+<style>
+  ::placeholder {
+    color: black;
+  }
+  a {
+    color:black;
+  }
+  a:hover {
+    color: #A45C40;
+    text-decoration:underline ;
+    font-weight:bold;
+  }
+</style>
 @include('admin.navbar')
 
 <body>
-<!-- navigation -->
 
-<!-- /navigation -->
-<!-- <a style ='align-item:right'>
-<button  class="btn btn-primary">Back</button>
-</a> -->
-
-<center><br><br><h4>Create Subject</h4><br>
-<button class="button" ><a style= 'color:black' href='/subj'>Back</a></button>
+<center><br><br><h4>Add Subject</h4><br>
+<button class="button" ><a style= 'color:white ;background-color:transparent; text-decoration:none' href='/subj'>Back</a></button>
 <section class="section">
-        <div class="col-md-6 form-table">
-				<form method="POST" action="/insertSubj">
-            @if(Session::has('fail'))
-                    <div class= "alert alert-danger">{{Session::get('fail')}}</div>
-                    @endif
-                    @csrf
-                    <!-- from course structure table
-					<div class="form-group" style='text-align:left'>
-						<label for="year">Year</label>
-						<input type="text" name="subject_year" id="subject_year" class="form-control" required>
-					</div>
-					<div class="form-group" style='text-align:left'>
-						<label for="name">Semester</label>
-						<input type="text" name="subject_semester" id="subject_semester" class="form-control" required>
-					</div> -->
-					<div class="form-group" style='text-align:left'>
-						<label for="subject_code">Subject Code</label>
-						<input type="text" id="subject_code" name="subject_code" class="form-control" required></input>
-                  <span class="text-danger">@error('admin_id')  {{$message}} @enderror</span>
-					</div>
-                    <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Name</label>
-						<input type="text" name="subject_name" id="subject_name" class="form-control" required>
-					</div>
-                    <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Credit Hour</label>
-						<input type="text" name="subject_credithr" id="subject_credithr" class="form-control" required>
-					</div>
-                    <div class="form-group" style='text-align:left'>
-						<label for="name">Subject Category</label>
-						<!-- <input type="text" name="subject_category" id="subject_category" class="form-control" required> -->
-                  <select name="subject_category" type="text" class="form-control "  required>
-                      <option value= "">--Select--</option>
-                      <option value = "Core">Core</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "College Compulsory">College Compulsory</option>
-                      <option value = "Elective">Elective</option>
-                      <option value = "MPU">MPU</option>
-                    </select>
-					</div>
-                    <div class="form-group" style='text-align:left'>
-						<label for="name">Pre requisite Subject</label>
-						<input type="text" name="subject_prerequisite" id="subject_prerequisite" class="form-control">
-                  
-					</div>
-               
-                    <button type="submit" class="btn btn-primary">Create Subject</button>
-				</form>
-			</div>
-</section>
-
-   <!--<footer class="section-sm pb-0 border-top border-default">
-      <div class="container">
-         <div class="row justify-content-between">
-            <div class="col-md-3 mb-4">
-               <a class="mb-4 d-block" href="index.html">
-                  <img class="img-fluid" width="150px" src="images/logo.png" alt="LogBook">
-               </a>
-               <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div> 
-
-
-            <div class="col-lg-2 col-md-3 col-6 mb-4">
-               <h6 class="mb-4">Quick Links</h6>
-               <ul class="list-unstyled footer-list">
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li><a href="terms-conditions.html">Terms Conditions</a></li>
-               </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-3 col-6 mb-4">
-               <h6 class="mb-4">Social Links</h6>
-               <ul class="list-unstyled footer-list">
-                  <li><a href="#">facebook</a></li>
-                  <li><a href="#">twitter</a></li>
-                  <li><a href="#">linkedin</a></li>
-                  <li><a href="#">github</a></li>
-               </ul>
-            </div>
-
-            <div class="col-md-3 mb-4">
-               <h6 class="mb-4">Subscribe Newsletter</h6>
-               <form class="subscription" action="javascript:void(0)" method="post">
-                  <div class="position-relative">
-                     <i class="ti-email email-icon"></i>
-                     <input type="email" class="form-control" placeholder="Your Email Address">
-                  </div>
-                  <button class="btn btn-primary btn-block rounded" type="submit">Subscribe now</button>
-               </form>
-            </div>
+   <div class="col-md-6 form-table">
+		<form method="POST" action="/insertSubj">
+      @if(Session::has('fail'))
+         <div class= "alert alert-danger">{{Session::get('fail')}}</div>
+      @endif
+      @if(Session::has('success'))
+         <div class= "alert alert-success">{{Session::get('success')}}</div>
+      @endif
+      @csrf    
+		<div class="form-group" style='text-align:left'>
+			<label for="year">Year <a style="color:red">*</a></label>
+			<input type="text" name="subject_year" id="subject_year" class="form-control" required>
+         <span class="text-danger">@error('subject_year')  {{$message}} @enderror</span>
+		</div>
+		<div class="form-group" style='text-align:left'>
+			<label for="name">Semester <a style="color:red">*</a></label>
+			<input type="text" name="subject_semester" id="subject_semester" class="form-control" required>
+		</div> 
+		<div class="form-group" style='text-align:left'>
+			<label for="subject_code">Subject Code <a style="color:red">*</a></label>
+			<input type="text" id="subject_code" name="subject_code" class="form-control" required></input>
+		</div>
+      <div class="form-group" style='text-align:left'>
+			<label for="name">Subject Name <a style="color:red">*</a></label>
+			<input type="text" name="subject_name" id="subject_name" class="form-control" required>
+		</div>
+      <div class="form-group" style='text-align:left'>
+			<label for="name">Subject Credit Hour <a style="color:red">*</a></label>
+			<input type="text" name="subject_credithr" id="subject_credithr" class="form-control" required>
+         <span class="text-danger">@error('subject_credithr')  {{$message}} @enderror</span>
+		</div>
+      <div class="form-group" style='text-align:left'>
+			<label for="name">Subject Category <a style="color:red">*</a></label>
+         <select name="subject_category" type="text" class="form-control "  required>
+            <option value= "" disabled selected>Select Category </option>
+            <option value = "Core">Core</option>
+            <option value = "Elective">Elective</option>
+            <option value = "College Compulsory">College Compulsory</option>
+            <option value = "MPU">MPU</option>
+         </select>
+		</div >
+      <div class="form-group" style='text-align:left'>
+		   <label for="name">Pre requisite Subject Code <a style="color:red">*</a></label>
+			<input type="text" name="subject_prerequisite" id="subject_prerequisite" class="form-control" required>
+		</div>
+      <div class="containerIntake">
+         <center><div class="form-group" >
+            <label for="intake">Select Existing Intake:</label>
+            <select style="width:350px; "class="form-control" name="intake" id="intake">
+               <option value="">Select Intake</option>
+               @foreach($intakes as $intakeId => $intake)
+               <option value="{{ $intakeId }}">{{ $intake }}</option>
+               @endforeach
+            </select>
          </div>
-         <div class="scroll-top">
-            <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
-         </div>
-         <div class="text-center">
-            <p class="content">&copy; 2020 - Design &amp; Develop By <a href="https://themefisher.com/" target="_blank">Themefisher</a></p>
+         <label style="color:red" for="intake">OR</label>
+         <div class="form-group" >
+            <label for="new_intake">Create New Intake:</label>
+            <input style = "width:350px;" type="text" class="form-control" name="new_intake" id="new_intake" placeholder="e.g., 2019/20T1"></input>
+            <span style="margin-left:250px"class="text-danger">@error('new_intake')  {{$message}} @enderror</span>
          </div>
       </div>
-   </footer> -->
-
-
+      <button type="submit" class="btn btn-primary">Add Subject</button>
+	</form>
+</div>
+</section>
 
    <!-- JS Plugins -->
    @include('script')

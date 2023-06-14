@@ -13,6 +13,15 @@ class SubjectImport implements ToModel, WithHeadingRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+
+    private $intakeId;
+    private $importedSubjects = [];
+
+    public function __construct($intakeId)
+    {
+        $this->intakeId = $intakeId;
+    }
+
     public function model(array $row)
     {
         return new subject([
@@ -23,6 +32,17 @@ class SubjectImport implements ToModel, WithHeadingRow
             'subject_prerequisite'=> $row['subject_prerequisite'],
             'subject_semester'=> $row['subject_semester'],
             'subject_year'=> $row['subject_year'],
-        ]);
+            'cs_id' => $this->intakeId,
+        ]);  
+
+        $this->importedSubjects[] = $row['subject_code'];
+
+        return $subject;
     }
+
+    public function getImportedSubjects()
+    {
+        return $this->importedSubjects;
+    }
+
 }

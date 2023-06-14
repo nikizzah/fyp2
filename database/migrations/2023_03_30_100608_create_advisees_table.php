@@ -23,12 +23,9 @@ return new class extends Migration
                 $table->string('advisee_postcode')->default('');
                 $table->string('advisee_email')->default('');
                 $table->string('advisee_contact')->default('');
-                //$table->string('advisee_status')->default('');
+                $table->string('advisee_status')->default('');
                 $table->string('advisee_cgpa')->default('');
-                $table->string('subject_code')->nullable();
-                $table->string('advisor_id')->nullable();
-                $table->foreign('subject_code')->nullable()->references('subject_code')->on('subjects')->onUpdate('cascade')->onDelete('cascade');
-                $table->foreign('advisor_id')->nullable()->references('advisor_id')->on('advisors')->onUpdate('cascade')->onDelete('cascade');
+                $table->string('advisee_calculateCGPA')->nullable();
                 $table->timestamps();
             });
     }

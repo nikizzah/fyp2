@@ -1,6 +1,6 @@
 <head>
    <meta charset="utf-8">
-   <title>Logbook - Homepage</title>
+   <title>UNITEN Advisory and Study Planner</title>
 
    <!-- mobile responsive meta -->
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -28,4 +28,9 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+   @livewireStyles
+   <script src="{{ asset('livewire/livewire.js') }}"></script>
+    <script src="{{ asset('js/alpine.js') }}"></script>
+
+  
 </head>

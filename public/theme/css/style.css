@@ -95,6 +95,19 @@ h6, .h6 {
   right: 16px;
 }
 
+.btn-home {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 8px 25px;
+  border-radius: 50px;
+  border: 1px solid;
+  background: #c88f73;
+  color: #000000;
+  border-color: #c88f73;
+  position: center;
+}
+
 .btn-primary {
   background: #c88f73;
   color: #fcfcfc;
@@ -160,10 +173,84 @@ img {
   border: 0;
 }
 
+.imgView {
+    vertical-align: middle;
+    border: 0;
+    content : url('source/images/view.png');
+}
+
+.imgView:hover{
+  content : url('source/images/seen.png');
+}
+
 a,
 a:hover,
 a:focus {
   text-decoration: none;
+}
+
+.containerIntake {
+  left:50px;
+  width:600px;
+  border: 2px solid #E4B7A0;
+  padding: 50px;
+  margin: 10px auto;
+}
+
+#containerGRAPH{
+  width:1100px;
+  height:600px;
+}
+
+.dragging {
+  opacity: 0.5; /* Adjust the opacity to indicate dragging */
+}
+
+.drag-over {
+  border: 2px dashed blue; /* Adjust the border style to indicate the drop target */
+}
+
+.containerCS {
+  background-color: transparent;
+  width: 5000px;
+  border: 1px solid black;
+  padding: 50px;
+  margin: 20px;
+  border-width: 1px;
+}
+.containerHOME {
+  background-color: transparent;
+  width: 500px;
+  border: 2px solid #E4B7A0;
+  padding: 100px;
+  margin: 10px;
+  border-width: 2px;
+}
+.container-top {
+  margin-top: 60px;
+}
+
+.container-row {
+  margin-bottom: 20px;
+}
+
+.container-column {
+  margin-left: 20px;
+}
+.containerELECTIVE {
+  background-color: #E4B7A0;
+  width: 5000px;
+  border: 15px solid black;
+  padding: 50px;
+  margin: 20px;
+  border-width: 1px;
+}
+.containerPLAN {
+  background-color: transparent;
+  border: 15px solid #A45C40;
+  padding: 50px;
+  margin: 0 auto;
+  border-width: 2px;
 }
 
 a,
@@ -278,6 +365,11 @@ a:hover {
 
 .mb-100 {
   margin-bottom: 100px !important;
+}
+
+nav a:active {
+  color: #F6EEE0;
+  font-weight: bold;
 }
 
 .zindex-1 {
@@ -398,6 +490,10 @@ a:hover {
   /* transform: translate(-50%, -50%); */
 }
 
+.home-navbar {
+  height: 100px;
+}
+
 /* .topnav-centered  ul {
   float: none;
   position: absolute;
@@ -494,15 +590,14 @@ a:hover {
   background:transparent;
 }
 .search {
-  position: relative;
   width: 250px;
   height: 30px;
   border: none;
   border-radius: 50px;
   /* padding: 5px 5px;  */
   outline: none;
-  color: #6C6161;
-  background: #E4B7A0;
+  color: white;
+  background: #c88f73;
   align-items: center;
 }
 
@@ -1072,6 +1167,12 @@ a:hover {
 .table {
   border: 2px solid #c88f73;
 }
+
+.tableAdvisor {
+  left: 10px;
+  top: 10px;
+}
+
 .table tr, th, td {
   background-color: transparent;
   border: 1px solid #c88f73;
@@ -1079,6 +1180,16 @@ a:hover {
 
 .table th td{
   text-align: left;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blinking-button {
+  animation: blink 1s infinite;
 }
 
 .quote {

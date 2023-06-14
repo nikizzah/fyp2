@@ -14,36 +14,37 @@
 <body>
 <!-- navigation -->
 <header style = 'background-color: #A45C40;' class="sticky-top border-bottom ">
-   <!-- <div class="container"> -->
-   
       <nav class="navbar navbar-expand-lg ">
-      
-         <!-- <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-            <i class="ti-menu"></i>
-         </button> -->
-         -
+   
          <div class="collapse navbar-collapse text-center" id="navigation">
-         <center><br/><h1 style= 'color:black'></h1>
-            <ul style='color:black' class="navbar-nav ml-auto">
-<!-- /navigation -->
-<!-- <a style ='align-item:right'>
-<button  class="btn btn-primary">Back</button>
-</a> -->
+         <center><br/><a style= 'color:black; margin-top: 10px; '></a>
+         <center><br/><h4 style= 'color:black; margin-left:500px;'>UNITEN ADVISORY AND STUDY PLANNER</h4>
+         <center><br/><a style= 'color:black; margin-top: 37px; '></a>
+            <center><ul style='color:black' class="navbar-nav ">
+               <li class="nav-item" ><a href="https://www.uniten.edu.my/">
+               <img style='position: absolute; top: 15px; right: 16px' class="img-fluid" width="120px" src="{{url('source/images/logo-uniten.png')}}" alt="UNITEN">
+               </a>
+            </ul>
 
-</div>
+         </div>
       </nav>
    </div>
 </header>
 
-<center><br><br><h4 style='font-weight: bold'>UNITEN ADVISORY AND STUDY PLANNER</h4><br>
+<br><br>
+<center>
 <section class="section">
-        <div class="col-md-6 form-table">
+        <div class="col-md-4 form-table">
 				<form method="POST" action="/loginadvisee">
              @if(Session::has('fail'))
                     <div class= "alert alert-danger">{{Session::get('fail')}}</div>
                     @endif
+                    @if(Session::has('success'))
+                    <div class= "alert alert-success">{{Session::get('success')}}</div>
+                  @endif
                @csrf
-                <center><h4>Login</h4><br>
+               <a style="color:black;font-size:22px; font-weight:bold">Login</a><br>
+               <a style='color:#c88f73'>Advisee</a>
 					<div class="form-group" style='text-align:left'>
 						<label for="advisee_id">Student ID</label>
 						<input type="text" name="advisee_id" id="advisee_id" class="form-control" required>
@@ -51,18 +52,14 @@
                </div>
 					<div class="form-group" style='text-align:left'>
 						<label for="advisee_password">Password</label>
-						<input type="password" name="advisee_password" id="advisee_password" class="form-control" required>
+						<input type="password" name="advisee_password" id="advisee_password" class="form-control"  required>
                   <span class="text-danger">@error('advisee_password')  {{$message}} @enderror</span>
+                  <a style='color:#E4B7A0; text-decoration:underline; font-size:11px; right' href='adviseeforgot'>Forgot Password?</a><br>
                </div>
-					
-                    <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <br><a style='color:#E4B7A0; text-decoration:underline; font-size:11px' href='adviseeregister'>Register Here</a>
 				</form>
 			</div>
 </section>
-
-
 
    <!-- JS Plugins -->
    @include('script')

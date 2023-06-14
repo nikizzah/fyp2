@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('course_structures', function (Blueprint $table) {
-            $table->string('cs_id')->primary();
-            $table->string('cs_year')->default('');
-            $table->string('cs_semester')->default('');
+            $table->unsignedInteger('cs_id')->autoIncrement();
+            $table->string('cs_intake');
+            $table->string('total_advisees')->nullable();
+            
             $table->timestamps();
         });
     }

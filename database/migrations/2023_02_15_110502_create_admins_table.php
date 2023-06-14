@@ -15,9 +15,15 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->string('admin_id')->primary();
-            $table->string('admin_password')->default('');
+            $table->string('admin_password');
             $table->timestamps();
         });
+
+        DB::table('admins')->insert([
+            'admin_id' => 'Admin',
+            'admin_password' => Hash::make('12345'),
+        ]);
+        
     }
 
     /**
